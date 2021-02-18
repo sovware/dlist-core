@@ -2640,7 +2640,7 @@ add_filter( 'atbdp_popular_category_loop', 'atbdp_popular_category_loop' );
 
 function directorist_dashboard_listing_th_2(){
 	echo '<th class="directorist-table-review">' . __( 'Review', 'dlist' ) . '</th>';
-	echo '<th class="directorist-table-review">' . __( 'Category', 'dlist' ) . '</th>';
+	echo '<th class="directorist-table-category">' . __( 'Category', 'dlist' ) . '</th>';
 }
 add_action( 'directorist_dashboard_listing_th_2', 'directorist_dashboard_listing_th_2' );
 
@@ -2704,20 +2704,18 @@ function directorist_dashboard_listing_td_2() {
 
 	<td class="directorist_dashboard_category">
 		<ul>
-			<li>
-				<?php
-				if ( $cats ) {
-					foreach ( $cats as $cat ) {
-						$link          = ATBDP_Permalink::atbdp_get_category_page( $cat );
-						$space         = str_repeat( ' ', 1 );
-						$category_icon = $cats ? get_cat_icon( $cat->term_id ) : atbdp_icon_type() . '-tags';
-						$icon_type     = substr( $category_icon, 0, 2 );
-						$icon          = 'la' === $icon_type ? $icon_type . ' ' . $category_icon : 'fa ' . $category_icon;
-						echo sprintf( '%s<span><i class="%s"></i><a href="%s">%s</a></span>', esc_attr( $space ), esc_attr( $icon ), esc_url( $link ), esc_attr( $cat->name ) );
-					}
+			<?php
+			if ( $cats ) {
+				foreach ( $cats as $cat ) {
+					$link          = ATBDP_Permalink::atbdp_get_category_page( $cat );
+					$space         = str_repeat( ' ', 1 );
+					$category_icon = $cats ? get_cat_icon( $cat->term_id ) : atbdp_icon_type() . '-tags';
+					$icon_type     = substr( $category_icon, 0, 2 );
+					$icon          = 'la' === $icon_type ? $icon_type . ' ' . $category_icon : 'fa ' . $category_icon;
+					echo sprintf( '%s<li><i class="%s"></i><a href="%s">%s</a></li>', esc_attr( $space ), esc_attr( $icon ), esc_url( $link ), esc_attr( $cat->name ) );
 				}
-				?>
-			</li>
+			}
+			?>
 		</ul>
 	</td>
 	<?php
