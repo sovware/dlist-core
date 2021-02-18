@@ -639,45 +639,6 @@ function dlist_single_listings_settings_fields( $settings ) {
 
 add_filter( 'atbdp_single_listings_settings_fields', 'dlist_single_listings_settings_fields' );
 
-// Directorist all listing cat name
-function dlist_all_categories_after_category_name( $html, $term ) {
-	$count             = atbdp_listings_count_by_category( $term->term_id );
-	$expired_listings  = atbdp_get_expired_listings( ATBDP_CATEGORY, $term->term_id );
-	$number_of_expired = $expired_listings->post_count;
-	$number_of_expired = ! empty( $number_of_expired ) ? $number_of_expired : '0';
-	$total             = ( $count ) ? ( $count - $number_of_expired ) : $count;
-
-	$categories_settings['show_count'] = get_directorist_option( 'display_listing_count', 1 );
-	if ( ! empty( $categories_settings['show_count'] ) ) {
-		if ( 1 < $total ) {
-			return sprintf( '<span class="badge badge-pill badge-success">%s</span>', esc_attr( $total ) . esc_html__( ' Listings', 'dlist-core' ) );
-		} else {
-			return sprintf( '<span class="badge badge-pill badge-success">%s</span>', esc_attr( $total ) . esc_html__( ' Listing', 'dlist-core' ) );
-		}
-	}
-}
-
-add_filter( 'atbdp_all_categories_after_category_name', 'dlist_all_categories_after_category_name', 10, 2 );
-
-// Directorist all location name
-function dlist_all_locations_after_location_name( $html, $term ) {
-	$title = '';
-	$count = atbdp_listings_count_by_location( $term->term_id );
-
-	$expired_listings  = atbdp_get_expired_listings( ATBDP_LOCATION, $term->term_id );
-	$number_of_expired = $expired_listings->post_count;
-	$number_of_expired = ! empty( $number_of_expired ) ? $number_of_expired : '0';
-	$total             = ( $count ) ? ( $count - $number_of_expired ) : $count;
-
-	$locations_settings['show_count'] = get_directorist_option( 'display_location_listing_count', 1 );
-	if ( ! empty( $locations_settings['show_count'] ) ) {
-		$title = 1 < $total ? sprintf( '<p>%s</p>', $total . esc_html__( ' Listings', 'dlist-core' ) ) : sprintf( '<p>%s</p>', $total . esc_html__( ' Listing', 'dlist-core' ) );
-	}
-	return $title;
-}
-
-add_filter( 'atbdp_all_locations_after_location_name', 'dlist_all_locations_after_location_name', 10, 2 );
-
 // Directorist atbdp_search_listing dependency mainta
 
 function dlist_search_listing_jquery_dependency( $search_dependency ) {
@@ -688,7 +649,6 @@ function dlist_search_listing_jquery_dependency( $search_dependency ) {
 }
 
 add_filter( 'atbdp_search_listing_jquery_dependency', 'dlist_search_listing_jquery_dependency' );
-
 
 // Directorist atbdp_search_listing dependency mainta
 
@@ -1813,11 +1773,11 @@ function dlist_page_creation_notice() {
 	if ( ( get_option( 'atbdp_pages_version' ) < 1 ) && ( get_option( 'dlist_demo_import' ) < 1 ) ) {
 		$link  = add_query_arg( 'dlist_demo_import', 'true', admin_url() . '/tools.php?page=fw-backups-demo-content' );
 		$link2 = add_query_arg( 'dlist_create_page', 'true', $_SERVER['REQUEST_URI'] );
-		echo '<div class="notice notice-warning is-dismissible dlist_importer_notice"><p><a href="' . esc_url( $link ) . '">' . __( 'Import Demo', 'dlist' ) . '</a> or <a href="' . esc_url( $link2 ) . '">' . __( 'Generate', 'dlist' ) . '</a>' . __( ' Required Pages' ) . '</p></div>';
+		echo '<div class="notice notice-warning is-dismissible dlist_importer_notice"><p><a href="' . esc_url( $link ) . '">' . __( 'Import Demo', 'dlist-core' ) . '</a> or <a href="' . esc_url( $link2 ) . '">' . __( 'Generate', 'dlist-core' ) . '</a>' . __( ' Required Pages' ) . '</p></div>';
 	}
 	if ( get_transient( 'dlist-page-creation-notice' ) ) {
 		?>
-		<div class="updated notice is-dismissible"><p><?php _e( 'Page created successfully!', 'dlist' ); ?></p></div>
+		<div class="updated notice is-dismissible"><p><?php _e( 'Page created successfully!', 'dlist-core' ); ?></p></div>
 		<?php
 		delete_transient( 'dlist-page-creation-notice' );
 	}
@@ -2639,8 +2599,8 @@ add_filter( 'atbdp_popular_category_loop', 'atbdp_popular_category_loop' );
 
 
 function directorist_dashboard_listing_th_2(){
-	echo '<th class="directorist-table-review">' . __( 'Review', 'dlist' ) . '</th>';
-	echo '<th class="directorist-table-review">' . __( 'Category', 'dlist' ) . '</th>';
+	echo '<th class="directorist-table-review">' . __( 'Review', 'dlist-core' ) . '</th>';
+	echo '<th class="directorist-table-review">' . __( 'Category', 'dlist-core' ) . '</th>';
 }
 add_action( 'directorist_dashboard_listing_th_2', 'directorist_dashboard_listing_th_2' );
 
@@ -2687,9 +2647,9 @@ function directorist_dashboard_listing_td_2() {
 			$review_title = '';
 			if ( $reviews_count ) {
 				if ( 1 < $reviews_count ) {
-					$review_title = $reviews_count . esc_html__( ' Reviews', 'direo' );
+					$review_title = $reviews_count . esc_html__( ' Reviews', 'dlist-core' );
 				} else {
-					$review_title = $reviews_count . esc_html__( ' Review', 'direo' );
+					$review_title = $reviews_count . esc_html__( ' Review', 'dlist-core' );
 				}
 			}
 			?>
@@ -2723,3 +2683,11 @@ function directorist_dashboard_listing_td_2() {
 	<?php
 }
 add_action( 'directorist_dashboard_listing_td_2', 'directorist_dashboard_listing_td_2' );
+
+function atbdp_all_listings_meta_count( $html, $term ) {
+	$total = $term->count;
+	$str = ( 1 == $total ) ? __( 'Listing', 'dlist-core' ) : __( 'Listings', 'dlist-core' );
+	return '<span> ' . $total . '</span>' . $str;
+}
+add_filter( 'atbdp_all_locations_after_location_name', 'atbdp_all_listings_meta_count', 10, 2 );
+add_filter( 'atbdp_all_categories_after_category_name', 'atbdp_all_listings_meta_count', 10, 2 );
