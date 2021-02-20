@@ -8,6 +8,8 @@
  * @version 1.0
  */
 $attr = '';
+$default_types	 = $settings['default_types'];
+$types           = $settings['types'] ? implode( ',', $settings['types'] ) : '';
 $header          = $settings['header'];
 $show_pagination = $settings['show_pagination'];
 $title           = $settings['title'];
@@ -49,5 +51,5 @@ if ( 'carousel' === $layout ) {
 ?>
 
 <div id="<?php echo esc_attr( 'listing-' . $layout ); ?>">
-	<?php echo do_shortcode( '[directorist_all_listing map_zoom_level="' . esc_attr( $zoom_level ) . '" view="' . esc_attr( $layout ) . '" orderby="' . esc_attr( $order_by ) . '" order="' . esc_attr( $order_list ) . '" listings_per_page="' . esc_attr( $number_cat ) . '" category="' . esc_attr( $cat ) . '" tag="' . esc_attr( $tag ) . '" location="' . esc_attr( $location ) . '" featured_only="' . esc_attr( $featured ) . '" popular_only="' . esc_attr( $popular ) . '" header="' . esc_attr( $header ) . '" header_title ="' . esc_attr( $title ) . '" columns="' . esc_attr( $row ) . '" action_before_after_loop="' . esc_attr( $sidebar ) . '" show_pagination="' . esc_attr( $show_pagination ) . '" advanced_filter="' . esc_attr( $filter ) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr( $user ) . '" redirect_page_url="' . esc_attr( $web ) . '" ]' ); ?>
+	<?php echo do_shortcode( '[directorist_all_listing map_zoom_level="' . esc_attr( $zoom_level ) . '" view="' . esc_attr( $layout ) . '" orderby="' . esc_attr( $order_by ) . '" order="' . esc_attr( $order_list ) . '" listings_per_page="' . esc_attr( $number_cat ) . '" category="' . esc_attr( $cat ) . '" tag="' . esc_attr( $tag ) . '" location="' . esc_attr( $location ) . '" featured_only="' . esc_attr( $featured ) . '" popular_only="' . esc_attr( $popular ) . '" header="' . esc_attr( $header ) . '" header_title ="' . esc_attr( $title ) . '" columns="' . esc_attr( $row ) . '" action_before_after_loop="' . esc_attr( $sidebar ) . '" show_pagination="' . esc_attr( $show_pagination ) . '" advanced_filter="' . esc_attr( $filter ) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr( $user ) . '" redirect_page_url="' . esc_attr( $web ) . '" directory_type="' . $types . '" default_directory_type="' . $default_types . '"]' ); ?>
 </div>

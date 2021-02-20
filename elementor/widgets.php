@@ -571,7 +571,7 @@ class dlist_Blogs extends Widget_Base
 }
 
 //Categories
-class dlist_Categories extends Widget_Base
+class Dlist_Categories extends Widget_Base
 {
     public function get_name()
     {
@@ -608,6 +608,34 @@ class dlist_Categories extends Widget_Base
         );
 
         $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+                'condition' => [
+                    'cat_type!' => ['style3'],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
+                'condition' => [
+                    'cat_type!' => ['style3'],
+                ]
+            ]
+        );
+
+        $this->add_control(
             'cat_type',
             [
                 'label'   => __('Style', 'dlist-core'),
@@ -615,7 +643,8 @@ class dlist_Categories extends Widget_Base
                 'default' => 'category-style1',
                 'options' => [
                     'category-style1'    => esc_html__('Style 1', 'dlist-core'),
-                    'style3' => esc_html__('Style 2', 'dlist-core'),
+                    'category-style-two' => esc_html__('Style 2', 'dlist-core'),
+                    'style3'             => esc_html__('Style 3', 'dlist-core'),
                 ],
             ]
         );
@@ -712,7 +741,7 @@ class dlist_Categories extends Widget_Base
 }
 
 //Locations
-class dlist_Locations extends Widget_Base
+class Dlist_Locations extends Widget_Base
 {
     public function get_name()
     {
@@ -726,7 +755,7 @@ class dlist_Locations extends Widget_Base
 
     public function get_icon()
     {
-        return ' eicon-map-pin';
+        return 'eicon-map-pin';
     }
 
     public function get_categories()
@@ -745,6 +774,34 @@ class dlist_Locations extends Widget_Base
             'locations',
             [
                 'label' => __('Listing Locations', 'dlist-core'),
+            ]
+        );
+
+        $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+                'condition' => [
+                    'layout' => ['grid','list'],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
+                'condition' => [
+                    'layout' => ['grid','list'],
+                ]
             ]
         );
 
@@ -1513,7 +1570,7 @@ class dlist_FeatureBox extends Widget_Base
 }
 
 //Listings
-class dlist_Listings extends Widget_Base
+class Dlist_Listings extends Widget_Base
 {
     public function get_name()
     {
@@ -1546,6 +1603,28 @@ class dlist_Listings extends Widget_Base
             'listings',
             [
                 'label' => __('Listings', 'dlist-core'),
+            ]
+        );
+
+        $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+            ]
+        );
+
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
             ]
         );
 
@@ -1585,7 +1664,7 @@ class dlist_Listings extends Widget_Base
                 ]
             ]
         );
-
+        
         $this->add_control(
             'header',
             [
@@ -1609,7 +1688,6 @@ class dlist_Listings extends Widget_Base
                     'header' => 'yes',
                     'layout!' => 'carousel'
                 ]
-
             ]
         );
 
@@ -3373,7 +3451,7 @@ class dlist_SearchForm extends Widget_Base
 }
 
 //Search result
-class dlist_SearchResult extends Widget_Base
+class Dlist_SearchResult extends Widget_Base
 {
     public function get_name()
     {
@@ -3410,23 +3488,33 @@ class dlist_SearchResult extends Widget_Base
         );
 
         $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+            ]
+        );
+        
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
+            ]
+        );
+
+        $this->add_control(
             'header',
             [
                 'label'   => __('Show Header?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'filter',
-            [
-                'label'     => __('Show Filter Button?', 'dlist-core'),
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'no',
-                'condition' => [
-                    'header' => 'yes'
-                ]
             ]
         );
 
@@ -3503,7 +3591,6 @@ class dlist_SearchResult extends Widget_Base
                     'layout' => 'map'
                 ]
             ]
-
         );
 
         $this->add_control(
@@ -3565,8 +3652,9 @@ class dlist_SearchResult extends Widget_Base
     protected function render()
     {
         $settings        = $this->get_settings_for_display();
+        $default_types = $settings['default_types'];
+        $types = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         $header          = $settings['header'];
-        $filter          = 'yes' == $settings['filter'] ? $settings['filter'] : 'no';
         $show_pagination = $settings['show_pagination'];
         $layout          = $settings['layout'];
         $number_cat      = $settings['number_cat'];
@@ -3577,7 +3665,7 @@ class dlist_SearchResult extends Widget_Base
         $user            = $settings['user'];
         $web             = 'yes' == $user ? $settings['link']['url'] : '';
 
-        echo do_shortcode('[directorist_search_result view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" header="' . esc_attr($header) . '" columns="' . esc_attr($row) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" ]');
+        echo do_shortcode('[directorist_search_result view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" header="' . esc_attr($header) . '" columns="' . esc_attr($row) . '" show_pagination="' . esc_attr($show_pagination) . '" map_height="' . $map_height . '" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" directory_type="' . $types . '" default_directory_type="' . $default_types . '"]');
     }
 }
 
@@ -3787,7 +3875,7 @@ class dlist_SearchResultMap extends Widget_Base
 }
 
 //Single category
-class dlist_SingleCat extends Widget_Base
+class Dlist_SingleCat extends Widget_Base
 {
     public function get_name()
     {
@@ -3801,7 +3889,7 @@ class dlist_SingleCat extends Widget_Base
 
     public function get_icon()
     {
-        return '  eicon-theme-builder';
+        return 'eicon-theme-builder';
     }
 
     public function get_keywords()
@@ -3820,6 +3908,28 @@ class dlist_SingleCat extends Widget_Base
             'single_cat',
             [
                 'label' => __('Single Listing Category', 'dlist-core'),
+            ]
+        );
+
+        $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+            ]
+        );
+        
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
             ]
         );
 
@@ -3845,6 +3955,7 @@ class dlist_SingleCat extends Widget_Base
 
             ]
         );
+
         $this->add_control(
             'filter',
             [
@@ -3939,7 +4050,6 @@ class dlist_SingleCat extends Widget_Base
                     'layout' => 'map'
                 ]
             ]
-
         );
 
         $this->add_control(
@@ -3959,7 +4069,7 @@ class dlist_SingleCat extends Widget_Base
                 'label'    => __('Specify Categories', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('dlist_listing_category') ? dlist_listing_category() : []
+                'options'  => function_exists('dlist_listing_category') ? dlist_listing_category() : [],
             ]
         );
 
@@ -4049,6 +4159,8 @@ class dlist_SingleCat extends Widget_Base
     protected function render()
     {
         $settings        = $this->get_settings_for_display();
+        $default_types = $settings['default_types'];
+        $types = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         $header          = $settings['header'];
         $filter          = 'yes' == $settings['filter'] ? $settings['filter'] : 'no';
         $sidebar         = $settings['sidebar'];
@@ -4057,9 +4169,9 @@ class dlist_SingleCat extends Widget_Base
         $layout          = $settings['layout'];
         $number_cat      = $settings['number_cat'];
         $row             = $settings['row'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
+        $cat             = $settings['cat'] ? implode(',', $settings['cat']) : '';
+        $location        = $settings['location'] ? implode(',', $settings['location']) : '';
+        $tag             = $settings['tag'] ? implode(',', $settings['tag']) : '';
         $featured        = $settings['featured'];
         $popular         = $settings['popular'];
         $order_by        = $settings['order_by'];
@@ -4068,7 +4180,7 @@ class dlist_SingleCat extends Widget_Base
         $user            = $settings['user'];
         $web             = 'yes' == $user ? $settings['link']['url'] : '';
 
-        echo do_shortcode('[directorist_category view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" popular_only="' . esc_attr($popular) . '" header="' . esc_attr($header) . '" header_title ="' . esc_attr($title) . '" columns="' . esc_attr($row) . '" action_before_after_loop="' . esc_attr($sidebar) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" ]');
+        echo do_shortcode('[directorist_category view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" popular_only="' . esc_attr($popular) . '" header="' . esc_attr($header) . '" header_title ="' . esc_attr($title) . '" columns="' . esc_attr($row) . '" action_before_after_loop="' . esc_attr($sidebar) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" directory_type="' . $types . '" default_directory_type="' . $default_types . '"]');
     }
 }
 
@@ -4280,7 +4392,7 @@ class dlist_SingleCatMap extends Widget_Base
 }
 
 //Single location
-class dlist_SingleLoc extends Widget_Base
+class Dlist_SingleLoc extends Widget_Base
 {
     public function get_name()
     {
@@ -4313,6 +4425,28 @@ class dlist_SingleLoc extends Widget_Base
             'single_loc',
             [
                 'label' => __('Single Listing Location', 'dlist-core'),
+            ]
+        );
+
+        $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+            ]
+        );
+        
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
             ]
         );
 
@@ -4404,20 +4538,6 @@ class dlist_SingleLoc extends Widget_Base
         );
 
         $this->add_control(
-            'layout',
-            [
-                'label'   => __('View As', 'dlist-core'),
-                'type'    => Controls_Manager::SELECT,
-                'default' => 'grid',
-                'options' => [
-                    'grid' => esc_html__('Grid View', 'dlist-core'),
-                    'list' => esc_html__('List View', 'dlist-core'),
-                    'map'  => esc_html__('Map View', 'dlist-core'),
-                ],
-            ]
-        );
-
-        $this->add_control(
             'row',
             [
                 'label'   => __('Listings Per Row', 'dlist-core'),
@@ -4467,7 +4587,7 @@ class dlist_SingleLoc extends Widget_Base
                 'label'    => __('Specify Categories', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('dlist_listing_category') ? dlist_listing_category() : []
+                'options'  => function_exists('dlist_listing_category') ? dlist_listing_category() : [],
             ]
         );
 
@@ -4558,6 +4678,8 @@ class dlist_SingleLoc extends Widget_Base
     {
         $settings        = $this->get_settings_for_display();
         $header          = $settings['header'];
+        $default_types = $settings['default_types'];
+        $types = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         $filter          = 'yes' == $settings['filter'] ? $settings['filter'] : 'no';
         $sidebar         = $settings['sidebar'];
         $show_pagination = $settings['show_pagination'];
@@ -4565,9 +4687,9 @@ class dlist_SingleLoc extends Widget_Base
         $layout          = $settings['layout'];
         $number_cat      = $settings['number_cat'];
         $row             = $settings['row'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
+        $cat             = $settings['cat'] ? implode(',', $settings['cat']) : '';
+        $location        = $settings['location'] ? implode(',', $settings['location']) : '';
+        $tag             = $settings['tag'] ? implode(',', $settings['tag']) : '';
         $featured        = $settings['featured'];
         $popular         = $settings['popular'];
         $order_by        = $settings['order_by'];
@@ -4576,7 +4698,7 @@ class dlist_SingleLoc extends Widget_Base
         $user            = $settings['user'];
         $web             = 'yes' == $user ? $settings['link']['url'] : '';
 
-        echo do_shortcode('[directorist_location view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" popular_only="' . esc_attr($popular) . '" header="' . esc_attr($header) . '" header_title ="' . esc_attr($title) . '" columns="' . esc_attr($row) . '" action_before_after_loop="' . esc_attr($sidebar) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" ]');
+        echo do_shortcode('[directorist_location view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" popular_only="' . esc_attr($popular) . '" header="' . esc_attr($header) . '" header_title ="' . esc_attr($title) . '" columns="' . esc_attr($row) . '" action_before_after_loop="' . esc_attr($sidebar) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" directory_type="' . $types . '" default_directory_type="' . $default_types . '"]');
     }
 }
 
@@ -4788,7 +4910,7 @@ class dlist_SingleLocMap extends Widget_Base
 }
 
 //Single tag
-class dlist_SingleTag extends Widget_Base
+class Dlist_SingleTag extends Widget_Base
 {
     public function get_name()
     {
@@ -4821,6 +4943,28 @@ class dlist_SingleTag extends Widget_Base
             'single_cat',
             [
                 'label' => __('Single Listing Category', 'dlist-core'),
+            ]
+        );
+
+        $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
+            ]
+        );
+        
+        $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
             ]
         );
 
@@ -4960,7 +5104,7 @@ class dlist_SingleTag extends Widget_Base
                 'label'    => __('Specify Categories', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('dlist_listing_category') ? dlist_listing_category() : []
+                'options'  => function_exists('dlist_listing_category') ? dlist_listing_category() : [],
             ]
         );
 
@@ -5051,6 +5195,8 @@ class dlist_SingleTag extends Widget_Base
     {
         $settings        = $this->get_settings_for_display();
         $header          = $settings['header'];
+        $default_types = $settings['default_types'];
+        $types = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         $filter          = 'yes' == $settings['filter'] ? $settings['filter'] : 'no';
         $sidebar         = $settings['sidebar'];
         $show_pagination = $settings['show_pagination'];
@@ -5058,9 +5204,9 @@ class dlist_SingleTag extends Widget_Base
         $layout          = $settings['layout'];
         $number_cat      = $settings['number_cat'];
         $row             = $settings['row'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
+        $cat             = $settings['cat'] ? implode(',', $settings['cat']) : '';
+        $location        = $settings['location'] ? implode(',', $settings['location']) : '';
+        $tag             = $settings['tag'] ? implode(',', $settings['tag']) : '';
         $featured        = $settings['featured'];
         $popular         = $settings['popular'];
         $order_by        = $settings['order_by'];
@@ -5069,7 +5215,7 @@ class dlist_SingleTag extends Widget_Base
         $user            = $settings['user'];
         $web             = 'yes' == $user ? $settings['link']['url'] : '';
 
-        echo do_shortcode('[directorist_tag view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" popular_only="' . esc_attr($popular) . '" header="' . esc_attr($header) . '" header_title ="' . esc_attr($title) . '" columns="' . esc_attr($row) . '" action_before_after_loop="' . esc_attr($sidebar) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" ]');
+        echo do_shortcode('[directorist_tag view="' . esc_attr($layout) . '" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" popular_only="' . esc_attr($popular) . '" header="' . esc_attr($header) . '" header_title ="' . esc_attr($title) . '" columns="' . esc_attr($row) . '" action_before_after_loop="' . esc_attr($sidebar) . '" show_pagination="' . esc_attr($show_pagination) . '" advanced_filter="' . esc_attr($filter) . '" map_height="' . $map_height . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" directory_type="' . $types . '" default_directory_type="' . $default_types . '"]');
     }
 }
 

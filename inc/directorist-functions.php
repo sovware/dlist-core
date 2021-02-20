@@ -2691,3 +2691,12 @@ function atbdp_all_listings_meta_count( $html, $term ) {
 }
 add_filter( 'atbdp_all_locations_after_location_name', 'atbdp_all_listings_meta_count', 10, 2 );
 add_filter( 'atbdp_all_categories_after_category_name', 'atbdp_all_listings_meta_count', 10, 2 );
+
+function directorist_listing_types() {
+	$all_types = directory_types();
+	$types = [];
+	foreach( $all_types as $type) {
+		$types[ $type->slug ] = $type->name;
+	}
+	return $types;
+}
