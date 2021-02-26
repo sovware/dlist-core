@@ -608,6 +608,19 @@ class Dlist_Categories extends Widget_Base
         );
 
         $this->add_control(
+            'cat_type',
+            [
+                'label'   => __('Style', 'dlist-core'),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'category-style1',
+                'options' => [
+                    'category-style1'    => esc_html__('Style 1', 'dlist-core'),
+                    'style3' => esc_html__('Style 2', 'dlist-core'),
+                ],
+            ]
+        );
+
+        $this->add_control(
             'types',
             [
                 'label'    => __('Specify Listing Types', 'dlist-core'),
@@ -632,20 +645,6 @@ class Dlist_Categories extends Widget_Base
                 'condition' => [
                     'cat_type!' => ['style3'],
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'cat_type',
-            [
-                'label'   => __('Style', 'dlist-core'),
-                'type'    => Controls_Manager::SELECT,
-                'default' => 'category-style1',
-                'options' => [
-                    'category-style1'    => esc_html__('Style 1', 'dlist-core'),
-                    'category-style-two' => esc_html__('Style 2', 'dlist-core'),
-                    'style3'             => esc_html__('Style 3', 'dlist-core'),
-                ],
             ]
         );
 
@@ -778,6 +777,21 @@ class Dlist_Locations extends Widget_Base
         );
 
         $this->add_control(
+            'layout',
+            [
+                'label'   => __('Style', 'dlist-core'),
+                'type'    => Controls_Manager::SELECT,
+                'default' => 'grid',
+                'options' => [
+                    'grid' => esc_html__('Grid View', 'dlist-core'),
+                    'list' => esc_html__('List View', 'dlist-core'),
+                    'masonry' => esc_html__('Masonry View', 'dlist-core'),
+                    'carousel' => esc_html__('Carousel View', 'dlist-core'),
+                ],
+            ]
+        );
+
+        $this->add_control(
             'types',
             [
                 'label'    => __('Specify Listing Types', 'dlist-core'),
@@ -802,21 +816,6 @@ class Dlist_Locations extends Widget_Base
                 'condition' => [
                     'layout' => ['grid','list'],
                 ]
-            ]
-        );
-
-        $this->add_control(
-            'layout',
-            [
-                'label'   => __('Style', 'dlist-core'),
-                'type'    => Controls_Manager::SELECT,
-                'default' => 'grid',
-                'options' => [
-                    'grid' => esc_html__('Grid View', 'dlist-core'),
-                    'list' => esc_html__('List View', 'dlist-core'),
-                    'masonry' => esc_html__('Masonry View', 'dlist-core'),
-                    'carousel' => esc_html__('Carousel View', 'dlist-core'),
-                ],
             ]
         );
 
@@ -3381,22 +3380,6 @@ class dlist_SearchForm extends Widget_Base
 
             <div class="<?php Helper::directorist_container_fluid(); ?>">
 
-                <?php if ( $searchform->show_title_subtitle && ( $searchform->search_bar_title || $searchform->search_bar_sub_title ) ): ?>
-
-                    <div class="directorist-search-top">
-
-                        <?php if ( $searchform->search_bar_title ): ?>
-                            <h2 class="directorist-search-top__title"><?php echo esc_html( $searchform->search_bar_title ); ?></h2>
-                        <?php endif; ?>
-
-                        <?php if ( $searchform->search_bar_sub_title ): ?>
-                            <p class="directorist-search-top__subtitle"><?php echo esc_html( $searchform->search_bar_sub_title ); ?></p>
-                        <?php endif; ?>
-                        
-                    </div>
-
-                <?php endif; ?>
-
                 <form action="<?php echo esc_url( ATBDP_Permalink::get_search_result_page_link() ); ?>" class="directorist-search-form">
 
                     <div class="directorist-search-form-wrap <?php echo esc_attr( $searchform->border_class() ); ?>">
@@ -4316,7 +4299,7 @@ class dlist_SingleCatMap extends Widget_Base
             [
                 'label'   => __('Show Featured Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
@@ -4325,7 +4308,7 @@ class dlist_SingleCatMap extends Widget_Base
             [
                 'label'   => __('Show Popular Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
@@ -4834,7 +4817,7 @@ class dlist_SingleLocMap extends Widget_Base
             [
                 'label'   => __('Show Featured Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
@@ -4843,7 +4826,7 @@ class dlist_SingleLocMap extends Widget_Base
             [
                 'label'   => __('Show Popular Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
@@ -5351,7 +5334,7 @@ class dlist_SingleTagMap extends Widget_Base
             [
                 'label'   => __('Show Featured Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
@@ -5360,7 +5343,7 @@ class dlist_SingleTagMap extends Widget_Base
             [
                 'label'   => __('Show Popular Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
+                'default' => 'no',
             ]
         );
 
