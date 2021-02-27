@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: dList Core
-Plugin URI: https://aazztech.com/product/category/themes/wordpress/dlist/
-Description: Core plugin of dlist.
-Author: AazzTech
-Author URI: https://aazzztech.com
+Plugin URI: https://directorist.com/
+Description: Core plugin of dlist
+Author: wpWax
+Author URI: https://wpwax.com
 Domain Path: /languages
 Text Domain: dlist-core
 Version: 1.8
