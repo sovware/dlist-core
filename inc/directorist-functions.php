@@ -1496,7 +1496,7 @@ add_action( 'directorist_dashboard_listing_td_2', 'directorist_dashboard_listing
 
 function atbdp_all_listings_meta_count( $html, $term ) {
 	$total = $term->count;
-	$str = ( 1 == $total ) ? __( ' Listing', 'direo' ) : __( ' Listings', 'direo' );
+	$str = ( 1 == $total ) ? __( ' Listing', 'dlist-core' ) : __( ' Listings', 'dlist-core' );
 	return '<span class="listing-count"> ' . $total . '<span class="listing-label">' . $str . '</span>' . '</span>';
 }
 add_filter( 'atbdp_all_locations_after_location_name', 'atbdp_all_listings_meta_count', 10, 2 );

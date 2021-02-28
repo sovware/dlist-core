@@ -189,7 +189,7 @@ $all_listings = new WP_Query( $args );
 																<?php
 																$publish_date_format = get_directorist_option( 'publish_date_format', 'time_ago' );
 																if ( 'time_ago' === $publish_date_format ) {
-																	printf( __( 'Posted %s ago', 'dlist' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+																	printf( __( 'Posted %s ago', 'dlist-core' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 																} else {
 																	echo get_the_date();
 																}
@@ -216,7 +216,7 @@ $all_listings = new WP_Query( $args );
 			}
 		} else {
 			?>
-			<p class="atbdp_nlf"><?php esc_html_e( 'No listing found.', 'dlist' ); ?></p>
+			<p class="atbdp_nlf"><?php esc_html_e( 'No listing found.', 'dlist-core' ); ?></p>
 			<?php
 		}
 		?>
