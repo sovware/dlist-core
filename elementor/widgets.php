@@ -1316,7 +1316,6 @@ class dlist_videoPopup extends Widget_Base
         $video_link = $settings['video_link'];
         $btn        = $settings['btn']; ?>
 
-
         <div class="video_wrapper bgimage">
             <div class="bg_image_holder">
                 <img src="<?php echo esc_url($image['url']); ?>" alt="video">
@@ -2746,6 +2745,19 @@ class dlist_SearchForm extends Widget_Base
         $settings   = $this->get_settings_for_display();
         $popular    = $settings['popular'];
         $border    = 'yes' === $settings['border'] ? ' directorist-search-form-white-bg' : '';
+
+        wp_enqueue_script( 'directorist-search-form-listing' );
+        wp_enqueue_script( 'directorist-range-slider' );
+        wp_enqueue_script( 'directorist-search-listing' );
+
+        $data = Directorist\Script_Helper::get_search_script_data();
+        wp_localize_script( 'directorist-search-form-listing', 'atbdp_search_listing', $data );
+        wp_localize_script( 'directorist-search-listing', 'atbdp_search', [
+        'ajaxnonce' => wp_create_nonce('bdas_ajax_nonce'),
+        'ajax_url' => admin_url('admin-ajax.php'),
+        ]);
+        wp_localize_script( 'directorist-search-listing', 'atbdp_search_listing', $data );
+        wp_localize_script( 'directorist-range-slider', 'atbdp_range_slider', $data );
         ?>
 
         <div class="directorist-search-contents" style="<?php echo $searchform->background_img_style(); ?>">
