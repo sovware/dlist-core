@@ -2701,18 +2701,38 @@ class dlist_SearchForm extends Widget_Base
         );
 
         $this->add_control(
-            'border',
+            'types',
             [
-                'label'   => __('Fields Border', 'dlist-core'),
-                'type'    => Controls_Manager::SWITCHER,
-                'default' => 'no',
+                'label'    => __('Specify Listing Types', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
             ]
         );
 
         $this->add_control(
-            'popular',
+            'default_types',
             [
-                'label'   => __('Show Popular Category?', 'dlist-core'),
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+            ]
+        );
+
+        $this->add_control(
+            'search',
+            [
+                'label'       => __('Search Button Text', 'dlist-core'),
+                'type'        => Controls_Manager::TEXT,
+                'default'     => 'Search'
+            ]
+        );
+
+        $this->add_control(
+            'more_btn',
+            [
+                'label'   => __('More Filter Button', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
@@ -2741,77 +2761,14 @@ class dlist_SearchForm extends Widget_Base
 
     protected function render()
     {
-        $searchform = new Directorist_Listing_Search_Form( 'search_form', directorist_default_directory() );
-        $settings   = $this->get_settings_for_display();
-        $popular    = $settings['popular'];
-        $border    = 'yes' === $settings['border'] ? ' directorist-search-form-white-bg' : '';
-
-        wp_enqueue_script( 'directorist-search-form-listing' );
-        wp_enqueue_script( 'directorist-range-slider' );
-        wp_enqueue_script( 'directorist-search-listing' );
-
-        $data = Directorist\Script_Helper::get_search_script_data();
-        wp_localize_script( 'directorist-search-form-listing', 'atbdp_search_listing', $data );
-        wp_localize_script( 'directorist-search-listing', 'atbdp_search', [
-        'ajaxnonce' => wp_create_nonce('bdas_ajax_nonce'),
-        'ajax_url' => admin_url('admin-ajax.php'),
-        ]);
-        wp_localize_script( 'directorist-search-listing', 'atbdp_search_listing', $data );
-        wp_localize_script( 'directorist-range-slider', 'atbdp_range_slider', $data );
+        $settings       = $this->get_settings_for_display();
+        $search          = $settings['search'];
+        $more_btn          = $settings['more_btn'];
+        $default_types	 = $settings['default_types'];
+        $types           = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         ?>
 
-        <div class="directorist-search-contents" style="<?php echo $searchform->background_img_style(); ?>">
-
-            <div class="<?php Helper::directorist_container_fluid(); ?>">
-
-                <form action="<?php echo esc_url( ATBDP_Permalink::get_search_result_page_link() ); ?>" class="directorist-search-form">
-
-                    <div class="directorist-search-form-wrap <?php echo esc_attr( $searchform->border_class() ) . $border; ?> ">
-
-                        <?php $searchform->directory_type_nav_template(); ?>
-
-                        <input type="hidden" name="directory_type" id="listing_type" value="<?php echo esc_attr( $searchform->listing_type_slug() ); ?>">
-
-                        <div class="directorist-search-form-box">
-
-                            <div class="directorist-search-form-top directorist-flex directorist-align-center directorist-search-form-inline">
-
-                                <?php
-                                foreach ( $searchform->form_data[0]['fields'] as $field ){
-                                    $searchform->field_template( $field );
-                                }
-                                if ( $searchform->more_filters_display !== 'always_open' ){
-                                    $searchform->more_buttons_template();
-                                }
-                                ?>
-
-                            </div>
-
-                            <?php
-                            if ( $searchform->more_filters_display == 'always_open' ){
-                                $searchform->advanced_search_form_fields_template();
-                            }
-                            else {
-                                if ($searchform->has_more_filters_button) { ?>
-                                    <div class="<?php Helper::search_filter_class( $searchform->more_filters_display ); ?>">
-                                        <?php $searchform->advanced_search_form_fields_template();?>
-                                    </div>
-                                    <?php
-                                }
-                            }
-                            ?>
-
-                        </div>
-
-                    </div>
-
-                </form>
-
-                <?php if ('yes' == $popular) : $searchform->top_categories_template(); endif; ?>
-
-            </div>
-
-        </div>
+        <?php echo do_shortcode( '[directorist_search_listing show_title_subtitle="no" search_button="yes" search_button_text="'.$search.'" more_filters_button="'.$more_btn.'" more_filters_text="" more_filters_display="overlapping" directory_type="'.$types.'" default_directory_type="'.$default_types.'" ]' );?>
 
         <?php
     }
