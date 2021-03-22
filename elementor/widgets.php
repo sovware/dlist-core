@@ -2748,10 +2748,10 @@ class dlist_SearchForm extends Widget_Base
                     'value' => Schemes\Color::COLOR_3,
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .directorist-search-contents .directorist-listing-category-top ul li a p,
-                    {{WRAPPER}} .directorist-search-contents .directorist-listing-category-top ul li a span,
-                    {{WRAPPER}} .directorist-search-contents .directorist-search-top__title,
-                    {{WRAPPER}} .directorist-search-contents .directorist-search-top__subtitle' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .directorist-listing-category-top ul li a p,
+                    {{WRAPPER}} .directorist-listing-category-top ul li a span,
+                    {{WRAPPER}} .directorist-search-contents .directorist-listing-type-selection .directorist-listing-type-selection__item .directorist-listing-type-selection__link--current' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .directorist-search-contents .directorist-listing-type-selection .directorist-listing-type-selection__item a:after' => 'background: {{VALUE}};',
                 ],
             ]
         );

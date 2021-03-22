@@ -7,7 +7,7 @@ Author: wpWax
 Author URI: https://wpwax.com
 Domain Path: /languages
 Text Domain: dlist-core
-Version: 1.10
+Version: 1.11
 */
 
 // Exit if accessed directly
