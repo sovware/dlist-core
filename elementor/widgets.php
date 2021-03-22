@@ -2768,7 +2768,7 @@ class dlist_SearchForm extends Widget_Base
         $types           = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         ?>
 
-        <?php echo do_shortcode( '[directorist_search_listing show_title_subtitle="no" search_button="yes" search_button_text="'.$search.'" more_filters_button="'.$more_btn.'" more_filters_text="" more_filters_display="overlapping" directory_type="'.$types.'" default_directory_type="'.$default_types.'" ]' );?>
+        <?php echo do_shortcode( '[directorist_search_listing show_title_subtitle="no" search_button="yes" search_button_text="'.$search.'" more_filters_button="'.$more_btn.'" more_filters_text="" more_filters_display="overlapping" directory_type="'.$types.'" default_directory_type="'.$default_types.'" ]' ); ?>
 
         <?php
     }
@@ -4952,7 +4952,7 @@ class dlist_Team extends Widget_Base
                         </figure>
                     </div>
                 </div>
-        <?php
+                <?php
             }
             wp_reset_postdata();
             echo wp_kses_post('</div>');
