@@ -293,17 +293,28 @@ function vb_reg_new_user() {
 	}
 
 	// Post values
-	$username         = $_POST['user'];
-	$email            = $_POST['mail'];
-	$pass             = $_POST['pass'];
+	$username         = isset( $_POST['user'] ) ? $_POST['user'] : '';
+	$email            = isset( $_POST['mail'] ) ? $_POST['mail'] : '';
+	$pass             = isset( $_POST['pass'] ) ? $_POST['pass'] : '';
 	$privacy_policy   = isset( $_POST['privacy_policy'] ) ? esc_attr( $_POST['privacy_policy'] ) : '';
 	$require_password = class_exists( 'Directorist_Base' ) ? get_directorist_option( 'require_password_reg', 1 ) : '';
 	$policy           = get_directorist_option( 'registration_privacy', 1 );
 	$terms            = get_directorist_option( 'regi_terms_condition', 1 );
 	if ( $require_password && ! $pass ) {
-		wp_send_json( __( 'Password field is empty!', 'dlist-core' ) );
+		wp_send_json( __( 'Password field is required', 'dlist-core' ) );
 		die();
 	}
+
+	if ( ! $email ) {
+		wp_send_json( __( 'Email field is required', 'dlist-core' ) );
+		die();
+	}
+
+	if ( ! $username ) {
+		wp_send_json( __( 'Username field is required', 'dlist-core' ) );
+		die();
+	}
+
 	if ( $policy || $terms ) {
 		if ( ! $privacy_policy ) {
 			wp_send_json( __( 'Make sure all the required fields are not empty!', 'dlist-core' ) );
