@@ -1183,6 +1183,37 @@ function dlist_avatar_size() {
 	return 120;
 }
 
+function listings_with_map_short_by(){
+	global $bdmv_listings;
+
+	$sort_html = '';
+	$sort_by = isset( $_POST['sort_by'] ) ? $_POST['sort_by'] : '';
+	$title_asc_active = ('title-asc' == $sort_by) ? "active" : '';
+	$title_desc_active = ('title-desc' == $sort_by) ? "active" : '';
+	$date_desc_active = ('date-desc' == $sort_by) ? "active" : '';
+	$date_asc_active = ('date-asc' == $sort_by) ? "active" : '';
+	$price_asc_active = ('price-asc' == $sort_by) ? "active" : '';
+	$price_desc_active = ('price-desc' == $sort_by) ? "active" : '';
+	$rand_active = ('rand' == $sort_by) ? "active" : '';
+	$sort_html.= '<h5>'.__( 'Sort by:', 'dlist-core' ).'</h5>';
+	$sort_html .= '<div class="directorist-dropdown directorist-dropdown-js directorist-dropdown-right">
+					<a class="directorist-dropdown__toggle directorist-dropdown__toggle-js directorist-btn directorist-btn-sm directorist-btn-px-15 directorist-btn-outline-primary directorist-toggle-has-icon" href="#" role="button" id="sortByDropdownMenuLink"> ' . __('Default Order', 'dlist-core') . ' <span class="atbd_drop-caret"></span>
+					</a>';
+	$sort_html .= '<div class="directorist-dropdown__links directorist-dropdown__links-js sort-by" aria-labelledby="sortByDropdownMenuLink">';
+
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-title-asc %s" data-sort="title-asc">%s</a>', $title_asc_active, __("A to Z ( title )", 'directorist-listings-map'));
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-title-desc %s" data-sort="title-desc">%s</a>', $title_desc_active,  __("Z to A ( title )", 'directorist-listings-map'));
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-date-desc %s" data-sort="date-desc">%s</a>', $date_desc_active, __("Latest listings", 'directorist-listings-map'));
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-date-asc %s" data-sort="date-asc">%s</a>', $date_asc_active, __("Oldest listings", 'directorist-listings-map'));
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-price-asc %s" data-sort="price-asc">%s</a>',$price_asc_active, __("Price ( low to high )", 'directorist-listings-map'));
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-price-desc %s" data-sort="price-desc">%s</a>', $price_desc_active, __("Price ( high to low )", 'directorist-listings-map'));
+	$sort_html .= sprintf('<a class="directorist-dropdown__links--single sort-rand %s" data-sort="rand">%s</a>',$rand_active, __("Random listings", 'directorist-listings-map'));
+	$sort_html .= ' </div>';
+	$sort_html .= ' </div>';
+
+	return $sort_html;
+}
+
 add_filter( 'atbdp_avatar_size', 'dlist_avatar_size' );
 // All listing header short by naming
 function dlist_get_listings_orderby_options( $sort_by_items ) {
@@ -1258,7 +1289,7 @@ function dlist_after_filter_button_in_listings_header() {
 $display_sortby_dropdown = class_exists( 'Directorist_Base' ) ? get_directorist_option( 'display_sort_by', 1 ) : '';
 
 if ( $display_sortby_dropdown ) {
-	add_filter( 'bdmv_view_as', 'dlist_after_filter_button_in_listings_header', 10, 3 );
+	add_filter( 'bdmv_view_as', 'listings_with_map_short_by', 10, 3 );
 	add_filter( 'atbdp_listings_view_as', 'dlist_after_filter_button_in_listings_header', 10, 3 );
 }
 
