@@ -292,6 +292,8 @@ function vb_reg_new_user() {
 		die( 'Ooops, something went wrong, please try again later.' );
 	}
 
+	$redirection_after_reg = get_directorist_option( 'redirection_after_reg' );
+	$redirect_url = get_the_permalink( $redirection_after_reg );
 	// Post values
 	$username         = isset( $_POST['user'] ) ? $_POST['user'] : '';
 	$email            = isset( $_POST['mail'] ) ? $_POST['mail'] : '';
@@ -300,49 +302,56 @@ function vb_reg_new_user() {
 	$require_password = class_exists( 'Directorist_Base' ) ? get_directorist_option( 'require_password_reg', 1 ) : '';
 	$policy           = get_directorist_option( 'registration_privacy', 1 );
 	$terms            = get_directorist_option( 'regi_terms_condition', 1 );
+	$data = [];
+	$data['state'] = true;
 	if ( $require_password && ! $pass ) {
-		wp_send_json( __( 'Password field is required', 'dlist-core' ) );
-		die();
+		$data['state'] = false;
+		$data['message'] = __( 'Password field is required', 'dlist-core' );
 	}
 
 	if ( ! $email ) {
-		wp_send_json( __( 'Email field is required', 'dlist-core' ) );
-		die();
+		$data['state'] = false;
+		$data['message'] = __( 'Email field is required', 'dlist-core' );
 	}
 
 	if ( ! $username ) {
-		wp_send_json( __( 'Username field is required', 'dlist-core' ) );
-		die();
+		$data['state'] = false;
+		$data['message'] = __( 'Username field is required', 'dlist-core' );
 	}
 
 	if ( $policy || $terms ) {
 		if ( ! $privacy_policy ) {
-			wp_send_json( __( 'Make sure all the required fields are not empty!', 'dlist-core' ) );
-			die();
+			$data['state'] = false;
+			$data['message'] = __( 'Make sure all the required fields are not empty!', 'dlist-core' );
 		}
 	}
 
 	/**
 	 * IMPORTANT: You should make server side validation here!
 	 */
-	$generated_pass = wp_generate_password( 12, false );
-	$password       = ! empty( $pass ) ? $pass : $generated_pass;
-	$userdata       = array(
-		'user_login' => $username,
-		'user_email' => $email,
-		'user_pass'  => $password,
-	);
-	$user_id        = wp_insert_user( $userdata );
-	if ( ! is_wp_error( $user_id ) ) {
-		update_user_meta( $user_id, '_atbdp_generated_password', $password );
-		wp_new_user_notification($user_id, null, 'admin');
-		ATBDP()->email->custom_wp_new_user_notification_email($user_id);
-		echo '1';
-	} else {
-		echo $user_id->get_error_message();
+	if( !empty( $data['state'] ) ){
+		$generated_pass = wp_generate_password( 12, false );
+		$password       = ! empty( $pass ) ? $pass : $generated_pass;
+		$userdata       = array(
+			'user_login' => $username,
+			'user_email' => $email,
+			'user_pass'  => $password,
+		);
+		$user_id        = wp_insert_user( $userdata );
+		if ( ! is_wp_error( $user_id ) ) {
+			update_user_meta( $user_id, '_atbdp_generated_password', $password );
+			wp_new_user_notification($user_id, null, 'admin');
+			ATBDP()->email->custom_wp_new_user_notification_email($user_id);
+			$data['state'] 			= true;
+			$data['message'] 		= __( 'Registration completed, redirecting..', 'dlist-core' );
+			$data['redirect_url'] 	= $redirect_url;
+		} else {
+			$data['state'] = false;
+			$data['message'] = $user_id->get_error_message();
+		}
 	}
-
-	die();
+	
+	wp_send_json( $data );
 }
 
 add_action( 'wp_ajax_register_user', 'vb_reg_new_user' );
