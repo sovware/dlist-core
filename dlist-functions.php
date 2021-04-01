@@ -330,7 +330,7 @@ function vb_reg_new_user() {
 	/**
 	 * IMPORTANT: You should make server side validation here!
 	 */
-	if( !empty( $data['state'] ) ){
+	if( !empty( $data['state'] ) ) {
 		$generated_pass = wp_generate_password( 12, false );
 		$password       = ! empty( $pass ) ? $pass : $generated_pass;
 		$userdata       = array(
