@@ -357,7 +357,7 @@ function vb_reg_new_user() {
 			$data['message'] = $user_id->get_error_message();
 		}
 	}
-	
+
 	wp_send_json( $data );
 }
 
