@@ -293,7 +293,8 @@ function vb_reg_new_user() {
 	}
 
 	$redirection_after_reg = get_directorist_option( 'redirection_after_reg' );
-	$redirect_url = get_the_permalink( $redirection_after_reg );
+	$auto_login = get_directorist_option( 'auto_login' );
+	$redirect_url = 'previous_page' == $redirection_after_reg ? wp_get_referer() : get_the_permalink( $redirection_after_reg );
 	// Post values
 	$username         = isset( $_POST['user'] ) ? $_POST['user'] : '';
 	$email            = isset( $_POST['mail'] ) ? $_POST['mail'] : '';
@@ -345,6 +346,12 @@ function vb_reg_new_user() {
 			$data['state'] 			= true;
 			$data['message'] 		= __( 'Registration completed, redirecting..', 'dlist-core' );
 			$data['redirect_url'] 	= $redirect_url;
+
+			if( ! empty( $auto_login ) ) {
+				wp_clear_auth_cookie();
+                wp_set_current_user($user_id);
+                wp_set_auth_cookie($user_id, true);
+			}
 		} else {
 			$data['state'] = false;
 			$data['message'] = $user_id->get_error_message();
