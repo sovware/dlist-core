@@ -19,7 +19,7 @@ function dlist_custom_style()
         <?php if ('#fd4956' != $primary) { ?>
 
             /* Color: Primary */
-            .color-primary,
+            #directorist.atbd_wrapper .atbd_generic_header .atbd_listing_action_btn .view-as a.active, .color-primary,
             .atbd_content_active #directorist.atbd_wrapper .atbd_saved_items_wrapper .saved_item_category a span,
             .atbdp_make_str_green,
             .atbd_content_active #directorist.atbd_wrapper .atbd_single_listing .atbd_listing_info .atbd_content_upper .atbd_excerpt_content a,
@@ -208,13 +208,13 @@ function dlist_custom_style()
             .atbdp-universal-pagination ul li.atbd-active:hover,
             .atbd-listing-tags li a:hover,
             .atbd_contact_info li a:hover,
-            .action-btn.active, .mainmenu__menu .navbar-nav .menu-item-has-children.current-menu-parent > a:after, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action .directorist-filter-btn, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action .directorist-filter-btn span.la, .directorist-advanced-filter .directorist-btn-ml, .directorist-listing-single .directorist-listing-single__info .directorist-listing-single__info--top .directorist-badge.directorist-badge-close, .directorist-listing-single .directorist-listing-single__info .directorist-listing-single__info--list ul li i.directorist-icon, .directorist-listing-single .directorist-listing-single__info .directorist-listing-title:hover a, .directorist-author-contact .directorist-card__body .directorist-author-info-list__item span.la, .directorist-pagination .page-numbers:hover, .atbd-wallet-title, .atbd_wallet-table__top h3 {
+            .action-btn.active, .mainmenu__menu .navbar-nav .menu-item-has-children.current-menu-parent > a:after, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action .directorist-filter-btn, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action .directorist-filter-btn span.la, .directorist-advanced-filter .directorist-btn-ml, .directorist-listing-single .directorist-listing-single__info .directorist-listing-single__info--top .directorist-badge.directorist-badge-close, .directorist-listing-single .directorist-listing-single__info .directorist-listing-single__info--list ul li i.directorist-icon, .directorist-listing-single .directorist-listing-single__info .directorist-listing-title:hover a, .directorist-author-contact .directorist-card__body .directorist-author-info-list__item span.la, .directorist-pagination .page-numbers:hover, .atbd-wallet-title, .atbd_wallet-table__top h3, .directorist-content-active .directorist-type-nav__list li.current .directorist-type-nav__link {
                 color: <?php echo esc_attr($primary); ?> !important;
             }
 
 
             /* Background: Primary */
-            .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, #directorist.atbd_wrapper .bdmv-pagination .page-numbers.current, .directorist-listing-single .directorist-listing-single__info .directorist-pricing-meta, .directorist-search-contents .directorist-checkbox.directorist-checkbox-primary input[type="checkbox"]:checked + .directorist-checkbox__label:after, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action__submit .directorist-btn-search:hover, .bg-primary, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action .directorist-filter-btn:hover, .atbdp_login_form_shortcode #loginform p input[type="submit"],
+            .listing-details-contents .listing-info--meta .directorist-listing-price, .directorist-user-dashboard__nav .directorist-tab__nav__action .directorist-btn--add-listing, #directorist.atbd_wrapper .dlm-action-wrapper .btn-primary:hover, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, #directorist.atbd_wrapper .bdmv-pagination .page-numbers.current, .directorist-listing-single .directorist-listing-single__info .directorist-pricing-meta, .directorist-search-contents .directorist-checkbox.directorist-checkbox-primary input[type="checkbox"]:checked + .directorist-checkbox__label:after, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action__submit .directorist-btn-search:hover, .bg-primary, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action .directorist-filter-btn:hover, .atbdp_login_form_shortcode #loginform p input[type="submit"],
             .ads-advanced .price-frequency .pf-btn input:checked+span,
             .atbd_content_active #directorist.atbd_wrapper .atbd_listing_meta .atbd_listing_price,
             .atbd_content_active #directorist.atbd_wrapper .atbd_category_single figure .cat-box .icon,
@@ -354,7 +354,7 @@ function dlist_custom_style()
             }
 
             /* Border-color: Primary */
-            .directorist-pagination .page-numbers:hover, .directorist-pagination .page-numbers.current, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, .btn-checkbox label input:checked + span, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, .directorist-search-contents .directorist-checkbox.directorist-checkbox-primary input[type="checkbox"]:checked + .directorist-checkbox__label:after, .active-color-primary label input:checked+span,
+            .directorist-content-active .directorist-type-nav__list li.current .directorist-type-nav__link, #directorist.atbd_wrapper .dlm-action-wrapper .btn-primary:hover, .directorist-pagination .page-numbers:hover, .directorist-pagination .page-numbers.current, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, .btn-checkbox label input:checked + span, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, .directorist-search-contents .directorist-checkbox.directorist-checkbox-primary input[type="checkbox"]:checked + .directorist-checkbox__label:after, .active-color-primary label input:checked+span,
             .atbd_content_active #directorist.atbd_wrapper.atbd_add_listing_wrapper .atbd_content_module .atbdb_content_module_contents .form-control:focus,
             .atbd_content_active #directorist.atbd_wrapper.atbd_add_listing_wrapper .atbd_content_module .atbdb_content_module_contents textarea:focus,
             .ads-advanced .price-frequency .pf-btn input:checked+span,
@@ -507,7 +507,7 @@ function dlist_custom_style()
             }
 
             /* Background: Secondary */
-            .directorist-add-listing-types .directorist-row .directorist-col-lg-6:nth-child(2n) .directorist-add-listing-types__single__link, .bg-secondary, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.la, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.las, 
+            .directorist-user-dashboard__nav .directorist-tab__nav__action .directorist-btn--logout, .directorist-add-listing-types .directorist-row .directorist-col-lg-6:nth-child(2n) .directorist-add-listing-types__single__link, .bg-secondary, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.la, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.las, 
             .atbd_content_active #directorist.atbd_wrapper .atbd_listing_bottom_content .atbd_content_left .atbd_listting_category a span,
             .atbd_content_active #directorist.atbd_wrapper .atbd_location_grid_wrap .atbd_location_grid figure figcaption:before,
             .listing-details-wrapper .listing_action_btns .atbd_go_back:hover,
@@ -545,9 +545,7 @@ function dlist_custom_style()
                 background: <?php echo esc_attr($secondary); ?> !important;
             }
 
-            .outline-secondary,
-            .border-secondary,
-            .checkbox-secondary .custom-control-input:checked~.custom-control-label::before,
+            .outline-secondary, .directorist-user-dashboard__nav .directorist-tab__nav__action .directorist-btn--logout, .border-secondary, .checkbox-secondary .custom-control-input:checked~.custom-control-label::before,
             .checkbox-outline-secondary .custom-control-input:checked~.custom-control-label::before {
                 border: 1px solid <?php echo esc_attr($secondary); ?> !important;
             }
@@ -816,7 +814,7 @@ function dlist_custom_style()
         .btn-gradient.btn-gradient-one, blockquote.wp-block-quote, blockquote {
             background: linear-gradient(to right, <?php echo esc_attr($primary) ?>, <?php echo esc_attr($secondary) ?>);
         }
-        .atbd_category_single figure figcaption:before, .atbd_location_grid figure figcaption:before{
+        .atbd_category_single figure figcaption:before, .atbd_location_grid figure figcaption:before, .directorist-content-active .atbd_location_grid figure figcaption:before, .directorist-content-active .atbd_category_single figure figcaption:before{
             background: <?php echo esc_attr($rgb_color) ?> !important;
         }
     </style>

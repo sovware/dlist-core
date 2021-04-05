@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Dlist Core\n"
-"POT-Creation-Date: 2021-03-22 18:09+0600\n"
+"POT-Creation-Date: 2021-04-01 15:11+0600\n"
 "PO-Revision-Date: 2019-07-09 14:30+0600\n"
 "Last-Translator: \n"
 "Language-Team: AazzTech\n"
@@ -103,75 +103,87 @@ msgstr ""
 msgid "Hide Widgets"
 msgstr ""
 
-#: dlist-functions.php:304
-msgid "Password field is empty!"
+#: dlist-functions.php:310
+msgid "Password field is required"
 msgstr ""
 
-#: dlist-functions.php:309
+#: dlist-functions.php:315
+msgid "Email field is required"
+msgstr ""
+
+#: dlist-functions.php:320
+msgid "Username field is required"
+msgstr ""
+
+#: dlist-functions.php:326
 msgid "Make sure all the required fields are not empty!"
 msgstr ""
 
-#: dlist-functions.php:344 dlist-functions.php:419 dlist-functions.php:512
+#: dlist-functions.php:347
+msgid "Registration completed, redirecting.."
+msgstr ""
+
+#: dlist-functions.php:371 dlist-functions.php:446 dlist-functions.php:539
 msgid ", "
 msgstr ""
 
-#: dlist-functions.php:350
+#: dlist-functions.php:377
 msgid "Next Post:"
 msgstr ""
 
-#: dlist-functions.php:355 dlist-functions.php:368
+#: dlist-functions.php:382 dlist-functions.php:395
 msgid "- In"
 msgstr ""
 
-#: dlist-functions.php:362
+#: dlist-functions.php:389
 msgid "Previous Post:"
 msgstr ""
 
-#: dlist-functions.php:406
+#: dlist-functions.php:433
 msgid "Related Posts"
 msgstr ""
 
-#: dlist-functions.php:419
+#: dlist-functions.php:446
 msgid "in "
 msgstr ""
 
-#: dlist-functions.php:440
+#: dlist-functions.php:467
 msgid "Share Post:"
 msgstr ""
 
-#: dlist-functions.php:443
+#: dlist-functions.php:470
 msgid "Facebook"
 msgstr ""
 
-#: dlist-functions.php:448
+#: dlist-functions.php:475
 msgid "Tweet"
 msgstr ""
 
-#: dlist-functions.php:453
+#: dlist-functions.php:480
 msgid "LinkedIn"
 msgstr ""
 
-#: dlist-functions.php:465
+#: dlist-functions.php:492
 msgid "Twitter Username"
 msgstr ""
 
-#: dlist-functions.php:466
+#: dlist-functions.php:493
 msgid "Google plus profile"
 msgstr ""
 
-#: dlist-functions.php:467
+#: dlist-functions.php:494
 msgid "Facebook Profile"
 msgstr ""
 
-#: dlist-functions.php:468
+#: dlist-functions.php:495
 msgid "Linkedin Profile"
 msgstr ""
 
-#: dlist-functions.php:514 inc/directorist-functions.php:1149
+#: dlist-functions.php:541 inc/directorist-functions.php:1149
 msgid "in"
 msgstr ""
 
-#: dlist-functions.php:527
+#: dlist-functions.php:554
 msgid ""
 "<strong>Login <a href=\"https://mailchimp.com\" target=\"_blank"
 "\">Mailchimp</a> > Profile > Audience > Create  Audience / select "
@@ -1422,12 +1434,12 @@ msgid "Gallery"
 msgstr ""
 
 #: inc/directorist-functions.php:654 inc/directorist-functions.php:675
-#: inc/directorist-functions.php:1499
+#: inc/directorist-functions.php:1530
 msgid " Listings"
 msgstr ""
 
 #: inc/directorist-functions.php:656 inc/directorist-functions.php:675
-#: inc/directorist-functions.php:1499
+#: inc/directorist-functions.php:1530
 msgid " Listing"
 msgstr ""
 
@@ -1487,62 +1499,90 @@ msgstr ""
 msgid "All Items"
 msgstr ""
 
-#: inc/directorist-functions.php:1190
-msgid "Default Order"
-msgstr ""
-
-#: inc/directorist-functions.php:1191
-msgid "Popular Order"
-msgstr ""
-
-#: inc/directorist-functions.php:1192
-msgid "Oldest Order"
-msgstr ""
-
-#: inc/directorist-functions.php:1193
-msgid "A to Z Order"
-msgstr ""
-
-#: inc/directorist-functions.php:1194
-msgid "Z to A Order"
-msgstr ""
-
-#: inc/directorist-functions.php:1195
-msgid "Random Order"
-msgstr ""
-
-#: inc/directorist-functions.php:1238
+#: inc/directorist-functions.php:1198 inc/directorist-functions.php:1269
 msgid "Sort by:"
 msgstr ""
 
-#: inc/directorist-functions.php:1329
+#: inc/directorist-functions.php:1200 inc/directorist-functions.php:1221
+msgid "Default Order"
+msgstr ""
+
+#: inc/directorist-functions.php:1204
+msgid "A to Z ( title )"
+msgstr ""
+
+#: inc/directorist-functions.php:1205
+msgid "Z to A ( title )"
+msgstr ""
+
+#: inc/directorist-functions.php:1206
+msgid "Latest listings"
+msgstr ""
+
+#: inc/directorist-functions.php:1207
+msgid "Oldest listings"
+msgstr ""
+
+#: inc/directorist-functions.php:1208
+msgid "Price ( low to high )"
+msgstr ""
+
+#: inc/directorist-functions.php:1209
+msgid "Price ( high to low )"
+msgstr ""
+
+#: inc/directorist-functions.php:1210
+msgid "Random listings"
+msgstr ""
+
+#: inc/directorist-functions.php:1222
+msgid "Popular Order"
+msgstr ""
+
+#: inc/directorist-functions.php:1223
+msgid "Oldest Order"
+msgstr ""
+
+#: inc/directorist-functions.php:1224
+msgid "A to Z Order"
+msgstr ""
+
+#: inc/directorist-functions.php:1225
+msgid "Z to A Order"
+msgstr ""
+
+#: inc/directorist-functions.php:1226
+msgid "Random Order"
+msgstr ""
+
+#: inc/directorist-functions.php:1360
 msgid "Import Demo"
 msgstr ""
 
-#: inc/directorist-functions.php:1329
+#: inc/directorist-functions.php:1360
 msgid "Generate"
 msgstr ""
 
-#: inc/directorist-functions.php:1329
+#: inc/directorist-functions.php:1360
 msgid " Required Pages"
 msgstr ""
 
-#: inc/directorist-functions.php:1333
+#: inc/directorist-functions.php:1364
 msgid "Page created successfully!"
 msgstr ""
 
-#: inc/directorist-functions.php:1414
+#: inc/directorist-functions.php:1445
 msgid "Review"
 msgstr ""
 
-#: inc/directorist-functions.php:1415
+#: inc/directorist-functions.php:1446
 msgid "Category"
 msgstr ""
 
-#: inc/directorist-functions.php:1462
+#: inc/directorist-functions.php:1493
 msgid " Reviews"
 msgstr ""
 
-#: inc/directorist-functions.php:1464
+#: inc/directorist-functions.php:1495
 msgid " Review"
 msgstr ""
