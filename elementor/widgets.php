@@ -2739,6 +2739,15 @@ class dlist_SearchForm extends Widget_Base
         );
 
         $this->add_control(
+            'popular',
+            [
+                'label'   => __('Show Popular Category?', 'direo-core'),
+                'type'    => Controls_Manager::SWITCHER,
+                'default' => 'yes',
+            ]
+        );
+
+        $this->add_control(
             'popular_cat_color',
             [
                 'label'  => __('Category Text Color', 'dlist-core'),
@@ -2762,13 +2771,14 @@ class dlist_SearchForm extends Widget_Base
     protected function render()
     {
         $settings       = $this->get_settings_for_display();
-        $search          = $settings['search'];
-        $more_btn          = $settings['more_btn'];
-        $default_types	 = $settings['default_types'];
-        $types           = $settings['types'] ? implode( ',', $settings['types'] ) : '';
+        $search         = $settings['search'];
+        $popular_cat    = $settings['popular'];
+        $more_btn       = $settings['more_btn'];
+        $default_types	= $settings['default_types'];
+        $types          = $settings['types'] ? implode( ',', $settings['types'] ) : '';
         ?>
 
-        <?php echo do_shortcode( '[directorist_search_listing show_title_subtitle="no" search_button="yes" search_button_text="'.$search.'" more_filters_button="'.$more_btn.'" more_filters_text="" more_filters_display="overlapping" directory_type="'.$types.'" default_directory_type="'.$default_types.'" ]' ); ?>
+        <?php echo do_shortcode( '[directorist_search_listing show_title_subtitle="no" search_button="yes" search_button_text="'.$search.'" more_filters_button="'.$more_btn.'" more_filters_text="" more_filters_display="overlapping" directory_type="'.$types.'" default_directory_type="'.$default_types.'" show_popular_category="'.$popular_cat.'"]' ); ?>
 
         <?php
     }
