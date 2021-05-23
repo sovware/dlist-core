@@ -920,9 +920,8 @@ function dlist_remove_extension_promotion_settings( $settings ) {
 
 add_filter( 'atbdp_extension_settings_fields', 'dlist_remove_extension_promotion_settings' );
 
-
 function dlist_search_result_settings_fields( $settings ) {
-	 unset( $settings['search_view_as'] );
+	unset( $settings['search_view_as'] );
 	unset( $settings['search_view_as_items'] );
 	unset( $settings['search_sort_by'] );
 	return $settings;
@@ -1545,3 +1544,13 @@ function directorist_listing_types() {
 	}
 	return $types;
 }
+
+function directorist_all_listing_header_footer_ad(){
+	$id = preg_match( '/(listing-listings_with_map)/', get_post_field( 'post_content', get_the_ID() ) );
+	if ( $id ) {
+		add_filter( 'directorist_all_listing_header_ad', '__return_false' );
+		add_filter( 'directorist_all_listing_footer_ad', '__return_false' );
+	}
+}
+
+add_action('wp_head', 'directorist_all_listing_header_footer_ad');
