@@ -1544,13 +1544,3 @@ function directorist_listing_types() {
 	}
 	return $types;
 }
-
-function directorist_all_listing_header_footer_ad(){
-	$id = preg_match( '/(listing-listings_with_map)/', get_post_field( 'post_content', get_the_ID() ) );
-	if ( $id ) {
-		add_filter( 'directorist_all_listing_header_ad', '__return_false' );
-		add_filter( 'directorist_all_listing_footer_ad', '__return_false' );
-	}
-}
-
-add_action('wp_head', 'directorist_all_listing_header_footer_ad');
