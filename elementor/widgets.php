@@ -1959,54 +1959,55 @@ class dlist_ListingsCarousel extends Widget_Base
         $this->start_controls_section(
             'listings_carousel',
             [
-                'label' => __('Listings Carousel', 'dlist-core'),
+                'label' => __('Listings Carousel', 'direo-core'),
+            ]
+        );
+        
+        $this->add_control(
+            'types',
+            [
+                'label'    => __('Specify Listing Types', 'direo-core'),
+                'type'     => Controls_Manager::SELECT2,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => ['general'],
             ]
         );
 
         $this->add_control(
+            'default_types',
+            [
+                'label'    => __('Set Default Listing Type', 'direo-core'),
+                'type'     => Controls_Manager::SELECT,
+                'multiple' => true,
+                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'default'  => 'general',
+            ]
+        );
+        $this->add_control(
             'featured',
             [
-                'label'   => __('Show Featured Listing Only?', 'dlist-core'),
+                'label'   => __('Show Featured Listing Only?', 'direo-core'),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'no',
             ]
         );
-
+        $this->add_control(
+            'popular',
+            [
+                'label'   => __('Show Popular Listing Only?', 'direo-core'),
+                'type'    => Controls_Manager::SWITCHER,
+                'default' => 'no',
+            ]
+        );
         $this->add_control(
             'list_num',
             [
-                'label'   => __('Number of Listings to Show:', 'dlist-core'),
+                'label'   => __('Number of Listings to Show:', 'direo-core'),
                 'type'    => Controls_Manager::NUMBER,
                 'min'     => 1,
                 'max'     => 100,
                 'default' => 6,
-            ]
-        );
-
-        $this->add_control(
-            'contact',
-            [
-                'label'   => __('Show Address?', 'dlist-core'),
-                'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'phone',
-            [
-                'label'   => __('Show Phone?', 'dlist-core'),
-                'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'date',
-            [
-                'label'   => __('Show Listing Publish Date?', 'dlist-core'),
-                'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
             ]
         );
 
