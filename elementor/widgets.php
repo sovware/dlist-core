@@ -1959,14 +1959,14 @@ class dlist_ListingsCarousel extends Widget_Base
         $this->start_controls_section(
             'listings_carousel',
             [
-                'label' => __('Listings Carousel', 'direo-core'),
+                'label' => __('Listings Carousel', 'dlist-core'),
             ]
         );
         
         $this->add_control(
             'types',
             [
-                'label'    => __('Specify Listing Types', 'direo-core'),
+                'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
@@ -1977,7 +1977,7 @@ class dlist_ListingsCarousel extends Widget_Base
         $this->add_control(
             'default_types',
             [
-                'label'    => __('Set Default Listing Type', 'direo-core'),
+                'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
                 'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
@@ -1987,7 +1987,7 @@ class dlist_ListingsCarousel extends Widget_Base
         $this->add_control(
             'featured',
             [
-                'label'   => __('Show Featured Listing Only?', 'direo-core'),
+                'label'   => __('Show Featured Listing Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'no',
             ]
@@ -1995,7 +1995,7 @@ class dlist_ListingsCarousel extends Widget_Base
         $this->add_control(
             'popular',
             [
-                'label'   => __('Show Popular Listing Only?', 'direo-core'),
+                'label'   => __('Show Popular Listing Only?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'no',
             ]
@@ -2003,7 +2003,7 @@ class dlist_ListingsCarousel extends Widget_Base
         $this->add_control(
             'list_num',
             [
-                'label'   => __('Number of Listings to Show:', 'direo-core'),
+                'label'   => __('Number of Listings to Show:', 'dlist-core'),
                 'type'    => Controls_Manager::NUMBER,
                 'min'     => 1,
                 'max'     => 100,
@@ -2742,7 +2742,7 @@ class dlist_SearchForm extends Widget_Base
         $this->add_control(
             'popular',
             [
-                'label'   => __('Show Popular Category?', 'direo-core'),
+                'label'   => __('Show Popular Category?', 'dlist-core'),
                 'type'    => Controls_Manager::SWITCHER,
                 'default' => 'yes',
             ]
