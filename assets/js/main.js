@@ -60,8 +60,9 @@ jQuery(document).ready(function(){
     });
 
     //listing slider
-    $(".all-listings-carousel").owlCarousel({
-      items: 3,
+    $(".directorist-listing-carousel .directorist-row").addClass('owl-carousel');
+    $(".directorist-listing-carousel .directorist-row").owlCarousel({
+      items: 6,
       nav: true,
       navText: [
         '<span class="la la-angle-left"></span>',
@@ -83,7 +84,7 @@ jQuery(document).ready(function(){
           items: 2,
         },
         991: {
-          items: 3,
+          items: 6,
         },
       },
     });
@@ -99,7 +100,7 @@ jQuery(document).ready(function(){
         $(".directory_home_category_area").removeClass("active");
       }
     });
-    
+
     var tc = document.querySelector(".text-changeable");
     if(tc!==null){
       var typed = new Typed('.text-changeable', {
