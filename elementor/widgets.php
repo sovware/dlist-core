@@ -280,15 +280,14 @@ class dlist_Accordion extends Widget_Base
                             foreach ($accordions as $key => $accordion) {
                                 $title = $accordion['tab_title'];
                                 $desc  = $accordion['tab_content']; ?>
-                                <div class="dacc_single <?php echo (1 == $key) ? esc_html('selected') : ''; ?>">
+                                <div class="dacc_single <?php echo (0 == $key) ? esc_html('selected') : ''; ?>">
                                     <h3 class="faq-title">
                                         <a href="#"><?php echo esc_attr($title); ?></a>
                                     </h3>
                                     <p class="dac_body"><?php echo esc_attr($desc); ?></p>
                                 </div>
-                        <?php
+                                <?php
                             }
-                            wp_reset_postdata();
                         } ?>
                     </div>
                 </div>
