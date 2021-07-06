@@ -282,7 +282,7 @@ class dlist_Accordion extends Widget_Base
                                 $desc  = $accordion['tab_content']; ?>
                                 <div class="dacc_single <?php echo (0 == $key) ? esc_html('selected') : ''; ?>">
                                     <h3 class="faq-title">
-                                        <a href="#"><?php echo esc_attr($title); ?></a>
+                                        <a href="#" class="<?php echo (0 == $key) ? esc_html('active') : ''; ?>"><?php echo esc_attr($title); ?></a>
                                     </h3>
                                     <p class="dac_body"><?php echo esc_attr($desc); ?></p>
                                 </div>
@@ -1320,10 +1320,12 @@ class dlist_videoPopup extends Widget_Base
                 <img src="<?php echo esc_url($image['url']); ?>" alt="video">
             </div>
             <div class="content_above">
-                <a href="<?php echo esc_url($video_link['url']); ?>" class="video-iframe btn-play">
-                    <span class="btn-icon"><i class="la la-youtube-play"></i></span>
-                    <span><?php echo esc_attr($btn); ?></span>
-                </a>
+                <?php if ( $video_link['url'] ) { ?>
+                    <a href="<?php echo esc_url($video_link['url']); ?>" class="video-iframe btn-play">
+                        <span class="btn-icon"><i class="la la-youtube-play"></i></span>
+                        <span><?php echo esc_attr($btn); ?></span>
+                    </a>
+                <?php } ?>
             </div>
         </div>
 
