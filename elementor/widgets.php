@@ -282,7 +282,7 @@ class dlist_Accordion extends Widget_Base
                                 $desc  = $accordion['tab_content']; ?>
                                 <div class="dacc_single <?php echo (0 == $key) ? esc_html('selected') : ''; ?>">
                                     <h3 class="faq-title">
-                                        <a href="#"><?php echo esc_attr($title); ?></a>
+                                        <a href="#" class="<?php echo (0 == $key) ? esc_html('active') : ''; ?>"><?php echo esc_attr($title); ?></a>
                                     </h3>
                                     <p class="dac_body"><?php echo esc_attr($desc); ?></p>
                                 </div>
