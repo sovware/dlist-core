@@ -1148,6 +1148,7 @@ add_action( 'atbdp_total_listings_found_text', 'dlist_total_listings_found_text'
 function dlist_avatar_size() {
 	return 120;
 }
+add_filter( 'atbdp_avatar_size', 'dlist_avatar_size' );
 
 function listings_with_map_short_by(){
 	global $bdmv_listings;
@@ -1180,7 +1181,6 @@ function listings_with_map_short_by(){
 	return $sort_html;
 }
 
-add_filter( 'atbdp_avatar_size', 'dlist_avatar_size' );
 // All listing header short by naming
 function dlist_get_listings_orderby_options( $sort_by_items ) {
 	$options = array(
@@ -1229,7 +1229,6 @@ function dlist_after_filter_button_in_listings_header() {
 			$default[] = $label;
 		}
 	}
-	wp_reset_postdata();
 	?>
 
 	<h5><?php echo esc_html__( 'Sort by:', 'dlist-core' ); ?></h5>
@@ -1244,7 +1243,6 @@ function dlist_after_filter_button_in_listings_header() {
 				$active_class = ( $value == $current_order ) ? ' active' : '';
 				echo sprintf( '<a class="dropdown-item %s" href="%s">%s</a>', $active_class, add_query_arg( 'sort', $value ), $label );
 			}
-			wp_reset_postdata();
 			?>
 		</div>
 	</div>
