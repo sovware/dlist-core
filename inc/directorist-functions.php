@@ -1411,7 +1411,6 @@ function directorist_dashboard_listing_th_2(){
 }
 add_action( 'directorist_dashboard_listing_th_2', 'directorist_dashboard_listing_th_2' );
 
-
 function directorist_dashboard_listing_td_2() {
 	$review = get_directorist_option( 'enable_review', 1 );
 	if ( ! $review ) return;
@@ -1479,6 +1478,7 @@ function directorist_dashboard_listing_td_2() {
 					$category_icon = $cats ? get_cat_icon( $cat->term_id ) : atbdp_icon_type() . '-tags';
 					$icon_type     = substr( $category_icon, 0, 2 );
 					$icon          = 'la' === $icon_type ? $icon_type . ' ' . $category_icon : 'fa ' . $category_icon;
+
 					echo sprintf( '%s<li><i class="%s"></i><a href="%s">%s</a></li>', esc_attr( $space ), esc_attr( $icon ), esc_url( $link ), esc_attr( $cat->name ) );
 				}
 			}
@@ -1487,6 +1487,7 @@ function directorist_dashboard_listing_td_2() {
 	</td>
 	<?php
 }
+
 add_action( 'directorist_dashboard_listing_td_2', 'directorist_dashboard_listing_td_2' );
 
 function atbdp_all_listings_meta_count( $html, $term ) {
@@ -1494,16 +1495,18 @@ function atbdp_all_listings_meta_count( $html, $term ) {
 	$str = ( 1 == $total ) ? __( ' Listing', 'dlist-core' ) : __( ' Listings', 'dlist-core' );
 	return '<span class="listing-count"> ' . $total . '<span class="listing-label">' . $str . '</span>' . '</span>';
 }
+
 add_filter( 'atbdp_all_locations_after_location_name', 'atbdp_all_listings_meta_count', 10, 2 );
 
 function atbdp_all_listings_cat_meta_count( $html, $term ) {
 	return $term->count;
 }
+
 add_filter( 'atbdp_all_categories_after_category_name', 'atbdp_all_listings_cat_meta_count', 10, 2 );
 
 function directorist_listing_types() {
-	$all_types = directory_types();
-	$types = [];
+	$all_types	= directory_types();
+	$types		= [];
 	foreach( $all_types as $type) {
 		$types[ $type->slug ] = $type->name;
 	}

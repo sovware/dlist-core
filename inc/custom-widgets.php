@@ -1,9 +1,12 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /*
 dlist All Custom Widget
 */
-
 
 //**************************************************************************************
 // Subscribe for blog
@@ -13,8 +16,8 @@ class dlist_subscribe_widget extends WP_Widget
     public function __construct()
     {
         $widget_details = array(
-            'classname' => 'dlist_subscribe_widget',
-            'description' => esc_html__('You can use it to display Subscribe form.', 'dlist-core')
+            'classname'     => 'dlist_subscribe_widget',
+            'description'   => esc_html__('You can use it to display Subscribe form.', 'dlist-core')
         );
 
         parent::__construct('dlist_subscribe_widget', esc_html__('-[Subscribe]', 'dlist-core'), $widget_details);
@@ -92,7 +95,6 @@ class dlist_subscribe_widget extends WP_Widget
 //**************************************************************************************
 class dlist_popular_post_widget extends WP_Widget
 {
-
     public function __construct()
     {
         $widget_details = array(
@@ -313,7 +315,6 @@ class dlist_latest_post_widget extends WP_Widget
     }
 }
 
-
 //**************************************************************************************
 // Social
 //**************************************************************************************
@@ -437,7 +438,6 @@ class dlist_connect_follow_widget extends WP_Widget
     }
 }
 
-
 //**************************************************************************************
 // search
 //**************************************************************************************
@@ -482,7 +482,6 @@ class dlist_search_widget extends WP_Widget
         <?php
     }
 }
-
 
 function dlist_widgets_register()
 {
