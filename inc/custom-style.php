@@ -349,7 +349,9 @@ function dlist_custom_style()
             .daterangepicker td.active:hover,
             .daterangepicker td.available:hover,
             .daterangepicker th.available:hover,
-            .bdb-confirm-wrapper .db-confirm-contents .db-confirm-form-wrapper .booking-confirmation-btn, .bdb_widget #form-booking .book-now, .bdb_widget #form-booking .login-booking, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action__submit .directorist-btn-search, .directorist-search-field .directorist-price-ranges__price-frequency--btn input[type=radio]:checked + .directorist-pf-range, .btn-checkbox label input:checked + span, .directorist-advanced-filter__action .directorist-btn.directorist-btn-dark, .directorist-advanced-filter__action .directorist-btn#atbdp_reset:hover, .directorist-mark-as-favorite__btn.directorist-added-to-favorite, .atbd_category_single figure figcaption .cat-box .icon, .directorist-listing-single.directorist-listing-list .directorist-mark-as-favorite .directorist-mark-as-favorite__btn.directorist-added-to-favorite, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, .directorist-pagination .page-numbers.current, .directorist-add-listing-types .directorist-row .directorist-col-lg-6:nth-child(2n+1) .directorist-add-listing-types__single__link {
+            .bdb-confirm-wrapper .db-confirm-contents .db-confirm-form-wrapper .booking-confirmation-btn, .bdb_widget #form-booking .book-now, .bdb_widget #form-booking .login-booking, .directorist-search-contents .directorist-search-form-wrap .directorist-search-form-box .directorist-search-form-top .directorist-search-form-action__submit .directorist-btn-search, .directorist-search-field .directorist-price-ranges__price-frequency--btn input[type=radio]:checked + .directorist-pf-range, .btn-checkbox label input:checked + span, .directorist-advanced-filter__action .directorist-btn.directorist-btn-dark, .directorist-advanced-filter__action .directorist-btn#atbdp_reset:hover, .directorist-mark-as-favorite__btn.directorist-added-to-favorite, .atbd_category_single figure figcaption .cat-box .icon, .directorist-listing-single.directorist-listing-list .directorist-mark-as-favorite .directorist-mark-as-favorite__btn.directorist-added-to-favorite, .directorist-checkbox.directorist-checkbox-primary input[type=checkbox]:checked + .directorist-checkbox__label:after, .directorist-pagination .page-numbers.current, .directorist-add-listing-types .directorist-row .directorist-col-lg-6:nth-child(2n+1) .directorist-add-listing-types__single__link, .directorist-compare-btn.directorist-compare-added,
+.directorist-compare-listing-wrapper .directorist-compare-listing-collapse-btn,
+.directorist-compare-listing-wrapper .directorist-compare-listing-all__btn {
                 background: <?php echo esc_attr($primary); ?> !important;
             }
 
@@ -482,7 +484,7 @@ function dlist_custom_style()
             if ('#23c8b9' != $secondary) { ?>
 
             /* Color: Secondary */
-            .color-secondary, .directorist-content-active .directorist-listing-category-top ul li a:hover, .directorist-content-active .directorist-listing-category-top ul li a:hover span.la, .directorist-content-active .directorist-listing-category-top ul li a:hover span.las, .directorist-content-active .directorist-listing-category-top ul li a:hover p, 
+            .color-secondary, .directorist-content-active .directorist-listing-category-top ul li a:hover, .directorist-content-active .directorist-listing-category-top ul li a:hover span.la, .directorist-content-active .directorist-listing-category-top ul li a:hover span.las, .directorist-content-active .directorist-listing-category-top ul li a:hover p,
             .post--card .card-body .post-meta li a,
             .post--card2 .card-body h3 a:hover,
             .atbd_content_active #directorist.atbd_wrapper .atbd_category_single:hover figure .cat-box .icon,
@@ -507,7 +509,7 @@ function dlist_custom_style()
             }
 
             /* Background: Secondary */
-            .directorist-user-dashboard__nav .directorist-tab__nav__action .directorist-btn--logout, .directorist-add-listing-types .directorist-row .directorist-col-lg-6:nth-child(2n) .directorist-add-listing-types__single__link, .bg-secondary, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.la, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.las, 
+            .directorist-user-dashboard__nav .directorist-tab__nav__action .directorist-btn--logout, .directorist-add-listing-types .directorist-row .directorist-col-lg-6:nth-child(2n) .directorist-add-listing-types__single__link, .bg-secondary, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.la, .directorist-listing-single .directorist-listing-single__meta .directorist-listing-single__meta--left .directorist-listing-category a span.las,
             .atbd_content_active #directorist.atbd_wrapper .atbd_listing_bottom_content .atbd_content_left .atbd_listting_category a span,
             .atbd_content_active #directorist.atbd_wrapper .atbd_location_grid_wrap .atbd_location_grid figure figcaption:before,
             .listing-details-wrapper .listing_action_btns .atbd_go_back:hover,
@@ -597,7 +599,7 @@ function dlist_custom_style()
             }
 
             /* Background: Success */
-            .directorist-author-profile-area .directorist-author-profile-wrap .directorist-card__body .directorist-author-meta-list__item .directorist-listing-rating-meta, .bg-success, .directorist-listing-single .directorist-listing-single__info .directorist-rating-meta, 
+            .directorist-author-profile-area .directorist-author-profile-wrap .directorist-card__body .directorist-author-meta-list__item .directorist-listing-rating-meta, .bg-success, .directorist-listing-single .directorist-listing-single__info .directorist-rating-meta,
             .atbd_content_active #directorist.atbd_wrapper .atbd_listing_meta .atbd_listing_rating,
             .badge-verified:before,
             #directorist.atbd_wrapper .atbd_author_info_widget .atbd_avatar_wrapper .atbd_name_time h4 .verified,
@@ -710,7 +712,7 @@ function dlist_custom_style()
             }
 
             /* Background: Warning */
-            .bg-warning, .directorist-listing-single .directorist-badge.directorist-badge-featured, 
+            .bg-warning, .directorist-listing-single .directorist-badge.directorist-badge-featured,
             .atbd_content_active #directorist.atbd_wrapper .atbd_listing_thumbnail_area .atbd_upper_badge .atbd_badge.atbd_badge_featured,
             .listing-info .listing-info--badges .atbd_badge.atbd_badge_featured,
             .active-color-warning label input:checked+span,
