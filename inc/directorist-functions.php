@@ -1406,68 +1406,73 @@ add_filter( 'atbdp_popular_category_loop', 'atbdp_popular_category_loop' );
 
 
 function directorist_dashboard_listing_th_2(){
-	echo '<th class="directorist-table-review">' . __( 'Review', 'dlist-core' ) . '</th>';
-	echo '<th class="directorist-table-review">' . __( 'Category', 'dlist-core' ) . '</th>';
+	$review = get_directorist_option( 'enable_review', 1 );
+	if ( ! empty( $review ) ) {
+		echo '<th class="directorist-table-review">' . __( 'Review', 'dlist-core' ) . '</th>';
+	}
+	echo '<th class="directorist-table-category">' . __( 'Category', 'dlist-core' ) . '</th>';
 }
 add_action( 'directorist_dashboard_listing_th_2', 'directorist_dashboard_listing_th_2' );
 
 function directorist_dashboard_listing_td_2() {
 	$review = get_directorist_option( 'enable_review', 1 );
-	if ( ! $review ) return;
 	$reviews_count = ATBDP()->review->db->count( array( 'post_id' => get_the_ID() ) );
 	$cats          = get_the_terms( get_the_ID(), ATBDP_CATEGORY );
 	$cats          = $cats ? $cats : array();
 	?>
-	<td class="directorist_dashboard_rating">
-		<ul class="rating">
-			<?php
-			$average   = ATBDP()->review->get_average( get_the_ID() );
-			$star      = '<li><span class="la la-star rate_active"></span></li>';
-			$half_star = '<li><span class="la la-star-half-o rate_active"></span></li>';
-			$none_star = '<li><span class="la la-star-o"></span></li>';
 
-			if ( is_int( $average ) ) {
-				for ( $i = 1; $i <= 5; $i++ ) {
+	<?php if ( ! empty( $review ) ) { ?>
+		<td class="directorist_dashboard_rating">
+			<ul class="rating">
+				<?php
+				$average   = ATBDP()->review->get_average( get_the_ID() );
+				$star      = '<li><span class="la la-star rate_active"></span></li>';
+				$half_star = '<li><span class="la la-star-half-o rate_active"></span></li>';
+				$none_star = '<li><span class="la la-star-o"></span></li>';
 
-					if ( $i <= $average ) {
-						echo wp_kses_post( $star );
-					} else {
-						echo wp_kses_post( $none_star );
+				if ( is_int( $average ) ) {
+					for ( $i = 1; $i <= 5; $i++ ) {
+
+						if ( $i <= $average ) {
+							echo wp_kses_post( $star );
+						} else {
+							echo wp_kses_post( $none_star );
+						}
+					}
+				} elseif ( ! is_int( $average ) ) {
+					$exp       = explode( '.', $average );
+					$float_num = $exp[0];
+
+					for ( $i = 1; $i <= 5; $i++ ) {
+						if ( $i <= $average ) {
+							echo wp_kses_post( $star );
+						} elseif ( ! empty( $average ) && $i > $average && $i <= $float_num + 1 ) {
+							echo wp_kses_post( $half_star );
+						} else {
+							echo wp_kses_post( $none_star );
+						}
 					}
 				}
-			} elseif ( ! is_int( $average ) ) {
-				$exp       = explode( '.', $average );
-				$float_num = $exp[0];
 
-				for ( $i = 1; $i <= 5; $i++ ) {
-					if ( $i <= $average ) {
-						echo wp_kses_post( $star );
-					} elseif ( ! empty( $average ) && $i > $average && $i <= $float_num + 1 ) {
-						echo wp_kses_post( $half_star );
+				$review_title = '';
+				if ( $reviews_count ) {
+					if ( 1 < $reviews_count ) {
+						$review_title = $reviews_count . esc_html__( ' Reviews', 'dlist-core' );
 					} else {
-						echo wp_kses_post( $none_star );
+						$review_title = $reviews_count . esc_html__( ' Review', 'dlist-core' );
 					}
 				}
-			}
+				?>
 
-			$review_title = '';
-			if ( $reviews_count ) {
-				if ( 1 < $reviews_count ) {
-					$review_title = $reviews_count . esc_html__( ' Reviews', 'dlist-core' );
-				} else {
-					$review_title = $reviews_count . esc_html__( ' Review', 'dlist-core' );
-				}
-			}
-			?>
-
-			<li class="reviews">
-				<span class="atbd_count">
-					<?php echo sprintf( '(<b>%s</b> %s )', esc_attr( $average . '/5' ), esc_attr( $review_title ) ); ?>
-				</span>
-			</li>
-		</ul>
-	</td>
-
+				<li class="reviews">
+					<span class="atbd_count">
+						<?php echo sprintf( '(<b>%s</b> %s )', esc_attr( $average . '/5' ), esc_attr( $review_title ) ); ?>
+					</span>
+				</li>
+			</ul>
+		</td>
+	<?php } ?>
+	
 	<td class="directorist_dashboard_category">
 		<ul>
 			<?php

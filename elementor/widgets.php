@@ -2179,9 +2179,6 @@ class dlist_ListingsMap extends Widget_Base
                     'title' => esc_html__(' Title', 'dlist-core'),
                     'date'  => esc_html__(' Date', 'dlist-core'),
                     'price' => esc_html__(' Price', 'dlist-core'),
-                ],
-                'condition' => [
-                    'layout!' => 'map'
                 ]
             ]
         );
@@ -2195,10 +2192,7 @@ class dlist_ListingsMap extends Widget_Base
                 'options' => [
                     'asc'  => esc_html__(' ASC', 'dlist-core'),
                     'desc' => esc_html__(' DESC', 'dlist-core'),
-                ],
-                'condition' => [
-                    'layout!' => 'map'
-                ]
+                ]               
             ]
         );
 
@@ -2233,7 +2227,7 @@ class dlist_ListingsMap extends Widget_Base
 
         <input type="hidden" id="listing-listings_with_map">
 
-    <?php echo do_shortcode('[directorist_all_listing view="listings_with_map" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" action_before_after_loop="no" popular_only="' . esc_attr($popular) . '" header="yes" header_title ="' . esc_attr($title) . '" show_pagination="' . esc_attr($show_pagination) . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" listings_with_map_columns="' . esc_attr($layout) . '"]');
+        <?php echo do_shortcode( '[directorist_all_listing view="listings_with_map" orderby="' . esc_attr($order_by) . '" order="' . esc_attr($order_list) . '" listings_per_page="' . esc_attr($number_cat) . '" category="' . esc_attr($cat) . '" tag="' . esc_attr($tag) . '" location="' . esc_attr($location) . '" featured_only="' . esc_attr($featured) . '" action_before_after_loop="no" popular_only="' . esc_attr($popular) . '" header="yes" header_title ="' . esc_attr($title) . '" show_pagination="' . esc_attr($show_pagination) . '" display_preview_image="yes" logged_in_user_only="' . esc_attr($user) . '" redirect_page_url="' . esc_attr($web) . '" listings_with_map_columns="' . esc_attr($layout) . '"]' );
     }
 }
 
@@ -2302,7 +2296,7 @@ class dlist_Registration extends Widget_Base
         <div class="dlist-directorist_custom_registration">
             <?php echo do_shortcode('[directorist_custom_registration]'); ?>
         </div>
-    <?php
+        <?php
     }
 }
 

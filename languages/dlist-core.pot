@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Dlist Core\n"
-"POT-Creation-Date: 2021-07-13 16:14+0600\n"
+"POT-Creation-Date: 2021-08-09 15:19+0600\n"
 "PO-Revision-Date: 2019-07-09 14:30+0600\n"
 "Last-Translator: \n"
 "Language-Team: AazzTech\n"
@@ -215,8 +215,8 @@ msgstr ""
 #: elementor/widgets.php:54 elementor/widgets.php:1109
 #: elementor/widgets.php:1216 elementor/widgets.php:1484
 #: elementor/widgets.php:5016 elementor/widgets.php:5204
-#: inc/custom-widgets.php:170 inc/custom-widgets.php:283
-#: inc/custom-widgets.php:381
+#: inc/custom-widgets.php:172 inc/custom-widgets.php:285
+#: inc/custom-widgets.php:382
 msgid "Title"
 msgstr ""
 
@@ -1172,23 +1172,23 @@ msgstr ""
 msgid "Needs Per Row"
 msgstr ""
 
-#: inc/custom-widgets.php:17
+#: inc/custom-widgets.php:20
 msgid "You can use it to display Subscribe form."
 msgstr ""
 
-#: inc/custom-widgets.php:20
+#: inc/custom-widgets.php:23
 msgid "-[Subscribe]"
 msgstr ""
 
-#: inc/custom-widgets.php:52
+#: inc/custom-widgets.php:55
 msgid "Placeholder Text"
 msgstr ""
 
-#: inc/custom-widgets.php:61
+#: inc/custom-widgets.php:64
 msgid "Mailchimp Action Url"
 msgstr ""
 
-#: inc/custom-widgets.php:70
+#: inc/custom-widgets.php:73
 msgid ""
 "<strong>Login <a href=\"https://mailchimp.com\" target=\"_blank"
 "\">Mailchimp</a> > Profile > Audience > Create  Audience / select "
@@ -1200,49 +1200,49 @@ msgid ""
 "docs\" target=\"_blank\">Widgets</a>]</b>"
 msgstr ""
 
-#: inc/custom-widgets.php:100
+#: inc/custom-widgets.php:102
 msgid "You can use it to display popular post."
 msgstr ""
 
-#: inc/custom-widgets.php:102
+#: inc/custom-widgets.php:104
 msgid "-[Popular Blog]"
 msgstr ""
 
-#: inc/custom-widgets.php:152 inc/custom-widgets.php:266
+#: inc/custom-widgets.php:154 inc/custom-widgets.php:268
 msgid "No Post Found."
 msgstr ""
 
-#: inc/custom-widgets.php:179 inc/custom-widgets.php:292
+#: inc/custom-widgets.php:181 inc/custom-widgets.php:294
 msgid "How many posts you want to show ?"
 msgstr ""
 
-#: inc/custom-widgets.php:213
+#: inc/custom-widgets.php:215
 msgid "You can use it to display latest post."
 msgstr ""
 
-#: inc/custom-widgets.php:215
+#: inc/custom-widgets.php:217
 msgid "-[Latest Blog]"
 msgstr ""
 
-#: inc/custom-widgets.php:327
+#: inc/custom-widgets.php:328
 msgid "You can use it to display social profile with icon."
 msgstr ""
 
-#: inc/custom-widgets.php:329
+#: inc/custom-widgets.php:330
 msgid "-[Social Icon]"
 msgstr ""
 
-#: inc/custom-widgets.php:389
+#: inc/custom-widgets.php:390
 msgid "How many social field would you want? & hit save."
 msgstr ""
 
-#: inc/custom-widgets.php:400
+#: inc/custom-widgets.php:401
 msgid ""
 "Please Note: Social Icon Names are just Fonts Awesome Icon Name in lower "
 "case(eg. facebook-f or twitter etc)"
 msgstr ""
 
-#: inc/custom-widgets.php:400
+#: inc/custom-widgets.php:401
 msgid "Font Awesome Icons List"
 msgstr ""
 
@@ -1421,12 +1421,12 @@ msgid "Gallery"
 msgstr ""
 
 #: inc/directorist-functions.php:621 inc/directorist-functions.php:642
-#: inc/directorist-functions.php:1494
+#: inc/directorist-functions.php:1495
 msgid " Listings"
 msgstr ""
 
 #: inc/directorist-functions.php:623 inc/directorist-functions.php:642
-#: inc/directorist-functions.php:1494
+#: inc/directorist-functions.php:1495
 msgid " Listing"
 msgstr ""
 
@@ -1566,10 +1566,10 @@ msgstr ""
 msgid "Category"
 msgstr ""
 
-#: inc/directorist-functions.php:1457
+#: inc/directorist-functions.php:1456
 msgid " Reviews"
 msgstr ""
 
-#: inc/directorist-functions.php:1459
+#: inc/directorist-functions.php:1458
 msgid " Review"
 msgstr ""
