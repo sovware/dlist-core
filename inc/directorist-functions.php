@@ -1088,7 +1088,8 @@ function dlist_listing_grid_list_footer_content() {
 
 add_filter( 'atbdp_listings_list_cat_view_count_author', 'dlist_listing_grid_list_footer_content' );
 
-// listing with map view copyright secti
+// listing with map view copyright section
+
 
 function dlist_footer_listing_with_map() {
 	$footer_style = get_post_meta( get_the_ID(), 'footer_style', true );

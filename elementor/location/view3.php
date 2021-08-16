@@ -36,7 +36,7 @@ $locations = get_categories( $args );
 			$location   = $child_name ? $child_name : $loc->name;
 			$link       = is_directorist() ? \ATBDP_Permalink::atbdp_get_location_page( (object) $loc ) : '';
 			$image_id   = get_term_meta( $loc->term_id, 'image', true );
-			$image      = $image_id ? wp_get_attachment_image_src( $image_id, 'findbiz-popular-cat' ) : '';
+			$image      = $image_id ? wp_get_attachment_image_src( $image_id, 'dlistfindbiz-popular-cat' ) : '';
 			$image      = ! empty( $image ) ? esc_url( $image[0] ) : '';
 			$count      = dlist_all_locations_after_location_name( '', $loc );
 			?>
