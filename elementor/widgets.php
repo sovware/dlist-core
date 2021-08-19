@@ -141,10 +141,6 @@ class dlist_Heading extends Widget_Base
             [
                 'label'  => __('Title  Color', 'dlist-core'),
                 'type'   => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_3,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} h1, {{WRAPPER}} h2, {{WRAPPER}} h3, {{WRAPPER}} h4, {{WRAPPER}} h5, {{WRAPPER}} h6' => 'color: {{VALUE}};',
                 ],
@@ -156,10 +152,6 @@ class dlist_Heading extends Widget_Base
             [
                 'label'  => __('Subtitle  Color', 'dlist-core'),
                 'type'   => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_4,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} p' => 'color: {{VALUE}};',
                 ],
@@ -1512,10 +1504,6 @@ class dlist_FeatureBox extends Widget_Base
             [
                 'label'  => __('Icon  Color', 'dlist-core'),
                 'type'   => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_1,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} i' => 'color: {{VALUE}};',
                 ],
@@ -1527,10 +1515,6 @@ class dlist_FeatureBox extends Widget_Base
             [
                 'label'  => __('Icon Background  Color', 'dlist-core'),
                 'type'   => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_2,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .block-single__icon' => 'background: {{VALUE}};',
                 ],
@@ -2748,10 +2732,6 @@ class dlist_SearchForm extends Widget_Base
             [
                 'label'  => __('Category Text Color', 'dlist-core'),
                 'type'   => Controls_Manager::COLOR,
-                'scheme' => [
-                    'type'  => Schemes\Color::get_type(),
-                    'value' => Schemes\Color::COLOR_3,
-                ],
                 'selectors' => [
                     '{{WRAPPER}} .directorist-listing-category-top ul li a p,
                     {{WRAPPER}} .directorist-listing-category-top ul li a span,
