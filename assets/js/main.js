@@ -60,34 +60,45 @@ jQuery(document).ready(function(){
     });
 
     //listing slider
+    /* Check Carousel Data */
+    let checkData = function (data, value) {
+      return typeof data === 'undefined' ? value : data;
+    };
+
     $(".directorist-listing-carousel .directorist-row").addClass('owl-carousel');
-    $(".directorist-listing-carousel .directorist-row").owlCarousel({
-      items: 6,
-      nav: true,
-      navText: [
-        '<span class="la la-angle-left"></span>',
-        '<span class="la la-angle-right"></span>',
-      ],
-      dots: false,
-      margin: 30,
-      responsive: {
-        0: {
-          items: 1,
+    $(".directorist-listing-carousel").each(function(id, elm){
+      $(".directorist-listing-carousel .directorist-row").owlCarousel({
+        items: checkData(parseInt(elm.dataset.carouselItems), 6),
+        nav: true,
+        loop: checkData(JSON.parse(elm.dataset.carouselLoop), true),
+        autoplay: checkData(JSON.parse(elm.dataset.carouselAutoplay), true),
+        autoplayTimeout: checkData(parseInt(elm.dataset.carouselDelay), 3000), /* delay */
+        navText: [
+          '<span class="la la-angle-left"></span>',
+          '<span class="la la-angle-right"></span>',
+        ],
+        dots: false,
+        margin: 30,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          400: {
+            items: 1,
+          },
+          575: {
+            items: 1,
+          },
+          767: {
+            items: 2,
+          },
+          991: {
+            items: checkData(parseInt(elm.dataset.carouselItems), 6),
+          },
         },
-        400: {
-          items: 1,
-        },
-        575: {
-          items: 1,
-        },
-        767: {
-          items: 2,
-        },
-        991: {
-          items: 6,
-        },
-      },
-    });
+      });
+    })
+
 
 
     //search field
