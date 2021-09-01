@@ -1986,6 +1986,21 @@ class dlist_ListingsCarousel extends Widget_Base
             ]
         );
         $this->add_control(
+            'column',
+            [
+                'type'    => Controls_Manager::SELECT,
+                'label'     => esc_html__( 'Number of columns', 'dlist-core' ),
+				'options'   => array(
+					'2' => esc_html__( '2', 'dlist-core' ),
+					'3' => esc_html__( '3', 'dlist-core' ),
+					'4' => esc_html__( '4', 'dlist-core' ),
+					'5' => esc_html__( '5', 'dlist-core' ),
+					'6' => esc_html__( '6', 'dlist-core' ),
+				),
+                'default'   => '6',
+            ]
+        );
+        $this->add_control(
             'list_num',
             [
                 'label'   => __('Number of Listings to Show:', 'dlist-core'),
@@ -1993,6 +2008,47 @@ class dlist_ListingsCarousel extends Widget_Base
                 'min'     => 1,
                 'max'     => 100,
                 'default' => 6,
+            ]
+        );
+
+        $this->add_control(
+            'autoplay',
+            [
+                'type'    => Controls_Manager::SWITCHER,
+                'label'       => esc_html__( 'Autoplay', 'dlist-core' ),
+				'label_on'    => esc_html__( 'On', 'dlist-core' ),
+				'label_off'   => esc_html__( 'Off', 'dlist-core' ),
+				'default'     => 'yes',
+				'description' => esc_html__( 'Enable or disable autoplay. Default: On', 'dlist-core' ),
+            ]
+        );
+        $this->add_control(
+            'slider_loop',
+            [
+                'type'    => Controls_Manager::SWITCHER,
+                'label'       => esc_html__( 'Loop', 'dlist-core' ),
+				'label_on'    => esc_html__( 'On', 'dlist-core' ),
+				'label_off'   => esc_html__( 'Off', 'dlist-core' ),
+				'default'     => 'yes',
+				'description' => esc_html__( 'Loop to first item. Default: On', 'dlist-core' ),
+            ]
+        );
+
+        $this->add_control(
+            'slider_interval',
+            [
+                'type'    => Controls_Manager::SELECT,
+                'label'     => esc_html__( 'Number of columns', 'dlist-core' ),
+				'label'       => esc_html__( 'Autoplay Interval', 'dlist-core' ),
+				'options'     => array(
+					'5000' => esc_html__( '5 Seconds', 'dlist-core' ),
+					'4000' => esc_html__( '4 Seconds', 'dlist-core' ),
+					'3000' => esc_html__( '3 Seconds', 'dlist-core' ),
+					'2000' => esc_html__( '2 Seconds', 'dlist-core' ),
+					'1000' => esc_html__( '1 Second', 'dlist-core' ),
+				),
+				'default'     => '2000',
+				'description' => esc_html__( 'Set any value for example 5 seconds to play it in every 5 seconds. Default: 5 Seconds', 'dlist-core' ),
             ]
         );
 
