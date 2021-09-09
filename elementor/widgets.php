@@ -2022,17 +2022,6 @@ class dlist_ListingsCarousel extends Widget_Base
 				'description' => esc_html__( 'Enable or disable autoplay. Default: On', 'dlist-core' ),
             ]
         );
-        $this->add_control(
-            'slider_loop',
-            [
-                'type'    => Controls_Manager::SWITCHER,
-                'label'       => esc_html__( 'Loop', 'dlist-core' ),
-				'label_on'    => esc_html__( 'On', 'dlist-core' ),
-				'label_off'   => esc_html__( 'Off', 'dlist-core' ),
-				'default'     => 'yes',
-				'description' => esc_html__( 'Loop to first item. Default: On', 'dlist-core' ),
-            ]
-        );
 
         $this->add_control(
             'slider_interval',

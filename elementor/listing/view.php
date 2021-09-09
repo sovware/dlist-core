@@ -20,13 +20,12 @@ $popular = $settings['popular'];
 $column = $settings['column'];
 $autoplay = $settings['autoplay'] ? 'true' : 'false';
 $slider_interval = $settings['slider_interval'];
-$slider_loop = $settings['slider_loop'] ? 'true' : 'false';
 
 add_filter( 'all_listings_wrapper', 'all_listings_wrapper' );
 add_filter( 'all_listings_column', function(){ return ''; } );
 ?>
 
-<div class="directorist-listing-carousel" data-carousel-items="<?php echo esc_attr( $column ); ?>" data-carousel-loop="<?php echo esc_attr( $slider_loop ); ?>" data-carousel-autoplay="<?php echo esc_attr( $autoplay ); ?>" data-carousel-delay="<?php echo esc_attr( $slider_interval ); ?>">
+<div class="directorist-listing-carousel" data-carousel-items="<?php echo esc_attr( $column ); ?>" data-carousel-loop="false" data-carousel-autoplay="<?php echo esc_attr( $autoplay ); ?>" data-carousel-delay="<?php echo esc_attr( $slider_interval ); ?>">
 
 	<?php echo do_shortcode( '[directorist_all_listing view="grid" header="no" action_before_after_loop="no" show_pagination="no" display_preview_image="yes" listings_per_page="' . esc_attr( $list_num ) . '" directory_type="' . $types . '" featured_only="' . esc_attr( $featured ) . '" popular_only="' . esc_attr( $popular ) . '" default_directory_type="' . $default_types . '"]' ); ?>
 	
