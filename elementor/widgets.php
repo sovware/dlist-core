@@ -2275,7 +2275,7 @@ class dlist_Registration extends Widget_Base
 
     public function get_icon()
     {
-        return ' fas fa-user-plus';
+        return 'eicon-lock-user';
     }
 
     public function get_categories()
@@ -2631,7 +2631,7 @@ class dlist_PricingPlan extends Widget_Base
 
     public function get_icon()
     {
-        return ' fas fa-dollar-sign';
+        return 'eicon-price-table';
     }
 
     public function get_keywords()
@@ -5007,7 +5007,7 @@ class dlist_Subscribe extends Widget_Base
 
     public function get_icon()
     {
-        return 'fa fa-paper-plane';
+        return 'eicon-mailchimp';
     }
 
     public function get_categories()
@@ -5116,7 +5116,7 @@ class booking_confirmation extends Widget_Base
 
     public function get_icon()
     {
-        return 'fas fa-calendar-check';
+        return 'eicon-calendar';
     }
 
     public function get_categories()
