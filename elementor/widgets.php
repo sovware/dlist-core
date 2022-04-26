@@ -39,7 +39,7 @@ class dlist_Heading extends Widget_Base
         return ['heading', 'pro', 'Heading Pro'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'heading_pro',
@@ -209,7 +209,7 @@ class dlist_Accordion extends Widget_Base
         return ['accordion', 'tabs', 'faq'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'section_title',
@@ -318,7 +318,7 @@ class dlist_AddListing_Form extends Widget_Base
         return ['Listing form', 'form', 'add listing'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'add_listing_form',
@@ -389,7 +389,7 @@ class dlist_Profile extends Widget_Base
         return ['profile', 'author', 'author profile'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'author_profile',
@@ -463,7 +463,7 @@ class dlist_Blogs extends Widget_Base
         return ['blog', 'post', 'blog post'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'blog_posts',
@@ -589,7 +589,7 @@ class Dlist_Categories extends Widget_Base
         return ['categories', 'all categories', 'listing categories'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'categories',
@@ -758,7 +758,7 @@ class Dlist_Locations extends Widget_Base
         return ['locations', 'all location', 'listing locations'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'locations',
@@ -927,7 +927,7 @@ class dlist_Checkout extends Widget_Base
         return ['checkout', 'payment', 'checkout payment'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'checkout',
@@ -1001,7 +1001,7 @@ class dlist_ContactForm extends Widget_Base
         return ['contact', 'form', 'contact form'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'contact_form',
@@ -1083,7 +1083,7 @@ class dlist_ContactItems extends Widget_Base
         return ['address', 'list', 'item', 'contact items'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'contact_items',
@@ -1175,7 +1175,7 @@ class dlist_Counter extends Widget_Base
         return ['count', 'counter', 'count down'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'section_counter',
@@ -1262,7 +1262,7 @@ class dlist_videoPopup extends Widget_Base
         return ['video play', 'Play', 'popup'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'video_play',
@@ -1353,7 +1353,7 @@ class dlist_Dashboard extends Widget_Base
         return ['dashboard', 'author dashboard'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'dashboard',
@@ -1425,7 +1425,7 @@ class dlist_FeatureBox extends Widget_Base
         return ['feature', 'feature list', 'feature box'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'feature_box',
@@ -1580,7 +1580,7 @@ class Dlist_Listings extends Widget_Base
         return ['listings', 'all listings'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'listings',
@@ -1939,7 +1939,7 @@ class dlist_ListingsCarousel extends Widget_Base
         return ['carousel', 'listing carousel'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'listings_carousel',
@@ -2079,7 +2079,7 @@ class dlist_ListingsMap extends Widget_Base
         return ['map', 'listings map', 'listing map'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'listings_map',
@@ -2283,7 +2283,7 @@ class dlist_Registration extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'Registration',
@@ -2352,7 +2352,7 @@ class dlist_Login extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'login',
@@ -2427,7 +2427,7 @@ class dlist_Transaction extends Widget_Base
     }
 
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'transaction',
@@ -2501,7 +2501,7 @@ class dlist_Logos extends Widget_Base
         return ['logo', 'logos', 'carousel',];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'logos',
@@ -2570,7 +2570,7 @@ class dlist_Payment extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'payment',
@@ -2644,7 +2644,7 @@ class dlist_PricingPlan extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'pricing_plan',
@@ -2716,7 +2716,7 @@ class dlist_SearchForm extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'hero_area',
@@ -2833,7 +2833,7 @@ class Dlist_SearchResult extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'search_result',
@@ -3052,7 +3052,7 @@ class dlist_SearchResultMap extends Widget_Base
         return ['search result map', 'search', 'result map'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'listings_map',
@@ -3257,7 +3257,7 @@ class Dlist_SingleCat extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'single_cat',
@@ -3567,7 +3567,7 @@ class dlist_SingleCatMap extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'single_cat',
@@ -3774,7 +3774,7 @@ class Dlist_SingleLoc extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'single_loc',
@@ -4085,7 +4085,7 @@ class dlist_SingleLocMap extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'single_cat',
@@ -4292,7 +4292,7 @@ class Dlist_SingleTag extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'single_cat',
@@ -4602,7 +4602,7 @@ class dlist_SingleTagMap extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'single_cat',
@@ -4809,7 +4809,7 @@ class dlist_Testimonial extends Widget_Base
         return ['testimonial', 'client', 'testi'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'Testimonials',
@@ -4917,7 +4917,7 @@ class dlist_Team extends Widget_Base
         return ['team', 'members', 'group'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'team',
@@ -5020,7 +5020,7 @@ class dlist_Subscribe extends Widget_Base
         return ['Subscribe', 'like', 'mailchimp'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'subscribe',
@@ -5124,7 +5124,7 @@ class booking_confirmation extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'booking',
@@ -5198,7 +5198,7 @@ class CTA extends Widget_Base
         return ['call_to_action', 'cta', 'call to action'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'categories',
@@ -5331,7 +5331,7 @@ class dlist_NeedCategories extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'need_categories',
@@ -5544,7 +5544,7 @@ class dlist_NeedLocations extends Widget_Base
         return ['locations', 'need locations',];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'need_locations',
@@ -5738,7 +5738,7 @@ class dlist_NeedSingleCat extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'need_single_category',
@@ -5832,7 +5832,7 @@ class dlist_NeedSingleLoc extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'need_single_location',
@@ -5926,7 +5926,7 @@ class dlist_Needs extends Widget_Base
         return ['dlist_category'];
     }
 
-    protected function _register_controls()
+    protected function register_controls()
     {
         $this->start_controls_section(
             'needs',
