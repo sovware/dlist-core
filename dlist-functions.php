@@ -576,3 +576,15 @@ function reading_time( $content = '' ) {
 	$time          = ceil( $word_count / 250 );
 	return $time;
 }
+
+function wpwax_run_shortcode( $shortcode, $atts = array() ) {
+	$html = '';
+
+	foreach ( $atts as $key => $value ) {
+		$html .= sprintf( ' %s="%s"', $key, esc_html( $value ) );
+	}
+
+	$html = sprintf( '[%s%s]', $shortcode, $html );
+
+	echo do_shortcode( $html );
+}

@@ -1596,7 +1596,7 @@ class Dlist_Listings extends Widget_Base
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
-                'default'  => ['general'],
+                'default'  => 'general',
             ]
         );
 
@@ -1621,7 +1621,6 @@ class Dlist_Listings extends Widget_Base
                     'grid' => esc_html__('Grid View', 'dlist-core'),
                     'list' => esc_html__('List View', 'dlist-core'),
                     'map'  => esc_html__('Map View', 'dlist-core'),
-                    'carousel'  => esc_html__('Carousel View', 'dlist-core'),
                 ],
             ]
         );
@@ -1707,19 +1706,6 @@ class Dlist_Listings extends Widget_Base
                 'label_block' => true,
                 'condition'   => [
                     'layout' => 'carousel'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'filter',
-            [
-                'label'     => __('Show Filter Button?', 'dlist-core'),
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'no',
-                'condition' => [
-                    'header' => 'yes',
-                    'layout!' => 'carousel'
                 ]
             ]
         );
@@ -1906,8 +1892,40 @@ class Dlist_Listings extends Widget_Base
 
     protected function render()
     {
-        $settings   = $this->get_settings_for_display();
-        az_template('/elementor/listings/view', $settings);
+        $data   = $this->get_settings();
+        
+        $atts = array(
+            'header'            => $data['header'],
+            'show_pagination'   => $data['show_pagination'],
+            'header_title'      => $data['title'],
+            'advanced_filter'   => 'no',
+            'view'              => $data['layout'],
+            'listings_per_page' => $data['number_cat'],
+            'columns'           => $data['row'],
+            'category'          => $data['cat'] ? implode( ',', $data['cat'] ) : '',
+            'location'          => $data['location'] ? implode( ',', $data['location'] ) : '',
+            'tag'               => $data['tag'] ? implode( ',', $data['tag'] ) : '',
+            'featured_only'     => $data['featured'],
+            'popular_only'      => $data['popular'],
+            'orderby'           => $data['order_by'],
+            'order'             => $data['order_list'],
+            'map_height'        => $data['map_height'],
+            'sidebar'           => $data['sidebar'],
+            'is_elementor'      => true,
+        );
+
+        if ( Helper::multi_directory_enabled() ) {
+			if ( $data['types'] ) {
+				$atts['directory_type'] = $data['types'];
+			}
+		}
+        ?>
+
+        <div id="<?php echo esc_attr( 'listing-' . $atts['view'] ); ?>" data-carousel-items="3" data-carousel-loop="false" data-carousel-autoplay="true" data-carousel-delay="2000">
+            <?php wpwax_run_shortcode( 'directorist_all_listing', $atts ); ?>
+        </div>
+
+        <?php
     }
 }
 
