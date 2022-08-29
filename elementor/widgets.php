@@ -1595,7 +1595,7 @@ class Dlist_Listings extends Widget_Base
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
                 'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
-                'default'  => ['general'],
+                'default'  => 'general',
             ]
         );
 
@@ -1620,7 +1620,6 @@ class Dlist_Listings extends Widget_Base
                     'grid' => esc_html__('Grid View', 'dlist-core'),
                     'list' => esc_html__('List View', 'dlist-core'),
                     'map'  => esc_html__('Map View', 'dlist-core'),
-                    'carousel'  => esc_html__('Carousel View', 'dlist-core'),
                 ],
             ]
         );
@@ -1706,19 +1705,6 @@ class Dlist_Listings extends Widget_Base
                 'label_block' => true,
                 'condition'   => [
                     'layout' => 'carousel'
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'filter',
-            [
-                'label'     => __('Show Filter Button?', 'dlist-core'),
-                'type'      => Controls_Manager::SWITCHER,
-                'default'   => 'no',
-                'condition' => [
-                    'header' => 'yes',
-                    'layout!' => 'carousel'
                 ]
             ]
         );
@@ -1905,35 +1891,31 @@ class Dlist_Listings extends Widget_Base
 
     protected function render()
     {
+        
         $data            = $this->get_settings();
         $btn             = $data['view_more_url'];
         $layout          = $data['layout'];
         $section_title   = $data['section_title'];
         $view_more_label = $data['view_more_label'];
 
-        $atts = array (
-            'header'          => $data['header'],
-            'title'           => $data['title'],
-            'filter'          => 'yes' == $data['filter'] ? $data['filter'] : 'no',
-            'sidebar'         => $data['sidebar'],
-            'is_elementor'    => true,
-            'user'            => $data['user'],
-            'view'            => $data['layout'],
-            'redirect'        => $data['redirect'],
-            'columns'         => $data['row'],
-            'map_height'      => $data['map_height'],
-            'number_cat'      => $data['number_cat'],
-            'cat'             => $data['cat'] ? implode( ',', $data['cat'] ) : '',
-            'tag'             => $data['tag'] ? implode( ',', $data['tag'] ) : '',
-            'location'        => $data['location'] ? implode( ',', $data['location'] ) : '',
-            'featured'        => $data['featured'],
-            'popular'         => $data['popular'],
-            'order_by'        => $data['order_by'],
-            'order_list'      => $data['order_list'],
-            'show_pagination' => $data['show_pagination'],
-            'zoom_level'      => $data['zoom_level'] ? $data['zoom_level']['size'] : '',
-            'user'            => $data['user'],
-            'web'             => 'yes' == $data['user'] ? $data['link']['url'] : '',
+        $atts = array(
+            'header'            => $data['header'],
+            'show_pagination'   => $data['show_pagination'],
+            'header_title'      => $data['title'],
+            'advanced_filter'   => 'no',
+            'view'              => $data['layout'],
+            'listings_per_page' => $data['number_cat'],
+            'columns'           => $data['row'],
+            'category'          => $data['cat'] ? implode( ',', $data['cat'] ) : '',
+            'location'          => $data['location'] ? implode( ',', $data['location'] ) : '',
+            'tag'               => $data['tag'] ? implode( ',', $data['tag'] ) : '',
+            'featured_only'     => $data['featured'],
+            'popular_only'      => $data['popular'],
+            'orderby'           => $data['order_by'],
+            'order'             => $data['order_list'],
+            'map_height'        => $data['map_height'],
+            'sidebar'           => $data['sidebar'],
+            'is_elementor'      => true,
         );
 
         if ( Helper::multi_directory_enabled() ) {
@@ -1951,9 +1933,7 @@ class Dlist_Listings extends Widget_Base
             $attr .= isset( $data['view_more_url']['nofollow'] ) ? ' rel="nofollow"' : '';
         }
 
-        if ( 'carousel' === $layout ) {
-
-            add_filter( 'all_listings_wrapper', 'all_listings_wrapper' );
+        if ( 'carousel' == $layout ) {
 
             if ( $section_title || $view_more_label ) {
                 ?>
