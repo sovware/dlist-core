@@ -568,6 +568,18 @@ function az_template( $template, $settings ) {
 	echo ob_get_clean();
 }
 
+function wpwax_run_shortcode( $shortcode, $atts = array() ) {
+	$html = '';
+
+	foreach ( $atts as $key => $value ) {
+		$html .= sprintf( ' %s="%s"', $key, esc_html( $value ) );
+	}
+
+	$html = sprintf( '[%s%s]', $shortcode, $html );
+
+	echo do_shortcode( $html );
+}
+
 // blog post estimated reading time.
 function reading_time( $content = '' ) {
 	$clean_content = strip_shortcodes( $content );

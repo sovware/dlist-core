@@ -38,52 +38,52 @@ if (!class_exists('dlistWidgets')) {
         {
             require_once(__DIR__ . '/widgets.php');
 
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Accordion());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Blogs());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Counter());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_ContactForm());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_videoPopup());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_FeatureBox());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Testimonial());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Team());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Heading());
-            Plugin::instance()->widgets_manager->register_widget_type(new dlist_Subscribe());
-            Plugin::instance()->widgets_manager->register_widget_type(new CTA());
+            Plugin::instance()->widgets_manager->register(new dlist_Accordion());
+            Plugin::instance()->widgets_manager->register(new dlist_Blogs());
+            Plugin::instance()->widgets_manager->register(new dlist_Counter());
+            Plugin::instance()->widgets_manager->register(new dlist_ContactForm());
+            Plugin::instance()->widgets_manager->register(new dlist_videoPopup());
+            Plugin::instance()->widgets_manager->register(new dlist_FeatureBox());
+            Plugin::instance()->widgets_manager->register(new dlist_Testimonial());
+            Plugin::instance()->widgets_manager->register(new dlist_Team());
+            Plugin::instance()->widgets_manager->register(new dlist_Heading());
+            Plugin::instance()->widgets_manager->register(new dlist_Subscribe());
+            Plugin::instance()->widgets_manager->register(new CTA());
             
             if ( class_exists( 'Directorist_Base' ) ) {
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_ContactItems());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_AddListing_Form());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Categories());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Checkout());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Logos());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Profile());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Dashboard());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Listings());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_ListingsCarousel());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_ListingsMap());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Locations());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Login());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Registration());
-                Plugin::instance()->widgets_manager->register_widget_type(new booking_confirmation());
+                Plugin::instance()->widgets_manager->register(new dlist_ContactItems());
+                Plugin::instance()->widgets_manager->register(new dlist_AddListing_Form());
+                Plugin::instance()->widgets_manager->register(new dlist_Categories());
+                Plugin::instance()->widgets_manager->register(new dlist_Checkout());
+                Plugin::instance()->widgets_manager->register(new dlist_Logos());
+                Plugin::instance()->widgets_manager->register(new dlist_Profile());
+                Plugin::instance()->widgets_manager->register(new dlist_Dashboard());
+                Plugin::instance()->widgets_manager->register(new dlist_Listings());
+                Plugin::instance()->widgets_manager->register(new dlist_ListingsCarousel());
+                Plugin::instance()->widgets_manager->register(new dlist_ListingsMap());
+                Plugin::instance()->widgets_manager->register(new dlist_Locations());
+                Plugin::instance()->widgets_manager->register(new dlist_Login());
+                Plugin::instance()->widgets_manager->register(new dlist_Registration());
+                Plugin::instance()->widgets_manager->register(new booking_confirmation());
                 if ( class_exists( 'Post_Your_Need' ) ) {
-                    Plugin::instance()->widgets_manager->register_widget_type(new dlist_NeedCategories());
-                    Plugin::instance()->widgets_manager->register_widget_type(new dlist_NeedLocations());
-                    Plugin::instance()->widgets_manager->register_widget_type(new dlist_NeedSingleCat());
-                    Plugin::instance()->widgets_manager->register_widget_type(new dlist_NeedSingleLoc());
-                    Plugin::instance()->widgets_manager->register_widget_type(new dlist_Needs());
+                    Plugin::instance()->widgets_manager->register(new dlist_NeedCategories());
+                    Plugin::instance()->widgets_manager->register(new dlist_NeedLocations());
+                    Plugin::instance()->widgets_manager->register(new dlist_NeedSingleCat());
+                    Plugin::instance()->widgets_manager->register(new dlist_NeedSingleLoc());
+                    Plugin::instance()->widgets_manager->register(new dlist_Needs());
                 }
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Payment());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_PricingPlan());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SearchForm());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SearchResult());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SearchResultMap());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SingleCat());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SingleCatMap());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SingleLoc());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SingleLocMap());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SingleTag());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_SingleTagMap());
-                Plugin::instance()->widgets_manager->register_widget_type(new dlist_Transaction());
+                Plugin::instance()->widgets_manager->register(new dlist_Payment());
+                Plugin::instance()->widgets_manager->register(new dlist_PricingPlan());
+                Plugin::instance()->widgets_manager->register(new dlist_SearchForm());
+                Plugin::instance()->widgets_manager->register(new dlist_SearchResult());
+                Plugin::instance()->widgets_manager->register(new dlist_SearchResultMap());
+                Plugin::instance()->widgets_manager->register(new dlist_SingleCat());
+                Plugin::instance()->widgets_manager->register(new dlist_SingleCatMap());
+                Plugin::instance()->widgets_manager->register(new dlist_SingleLoc());
+                Plugin::instance()->widgets_manager->register(new dlist_SingleLocMap());
+                Plugin::instance()->widgets_manager->register(new dlist_SingleTag());
+                Plugin::instance()->widgets_manager->register(new dlist_SingleTagMap());
+                Plugin::instance()->widgets_manager->register(new dlist_Transaction());
             }
         }
 

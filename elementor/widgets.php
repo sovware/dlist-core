@@ -1,5 +1,4 @@
 <?php
-use \Directorist\Directorist_Listing_Search_Form;
 use Directorist\Helper;
 use Elementor\Controls_Manager;
 use Elementor\Core\Schemes;
@@ -1906,8 +1905,74 @@ class Dlist_Listings extends Widget_Base
 
     protected function render()
     {
-        $settings   = $this->get_settings_for_display();
-        az_template('/elementor/listings/view', $settings);
+        $data            = $this->get_settings();
+        $btn             = $data['view_more_url'];
+        $layout          = $data['layout'];
+        $section_title   = $data['section_title'];
+        $view_more_label = $data['view_more_label'];
+
+        $atts = array (
+            'header'          => $data['header'],
+            'title'           => $data['title'],
+            'filter'          => 'yes' == $data['filter'] ? $data['filter'] : 'no',
+            'sidebar'         => $data['sidebar'],
+            'is_elementor'    => true,
+            'user'            => $data['user'],
+            'view'            => $data['layout'],
+            'redirect'        => $data['redirect'],
+            'columns'         => $data['row'],
+            'map_height'      => $data['map_height'],
+            'number_cat'      => $data['number_cat'],
+            'cat'             => $data['cat'] ? implode( ',', $data['cat'] ) : '',
+            'tag'             => $data['tag'] ? implode( ',', $data['tag'] ) : '',
+            'location'        => $data['location'] ? implode( ',', $data['location'] ) : '',
+            'featured'        => $data['featured'],
+            'popular'         => $data['popular'],
+            'order_by'        => $data['order_by'],
+            'order_list'      => $data['order_list'],
+            'show_pagination' => $data['show_pagination'],
+            'zoom_level'      => $data['zoom_level'] ? $data['zoom_level']['size'] : '',
+            'user'            => $data['user'],
+            'web'             => 'yes' == $data['user'] ? $data['link']['url'] : '',
+        );
+
+        if ( Helper::multi_directory_enabled() ) {
+            if ( $data['types'] ) {
+                $atts['directory_type'] = $data['types'];
+            }
+            if ( $data['default_types'] ) {
+                $atts['directory_type'] = $data['default_types'];
+            }
+        }
+
+        if ( isset( $btn['url'] ) ) {
+            $attr  = 'href="' . $data['view_more_url']['url'] . '"';
+            $attr .= isset( $data['view_more_url']['is_external'] ) ? ' target="_blank"' : '';
+            $attr .= isset( $data['view_more_url']['nofollow'] ) ? ' rel="nofollow"' : '';
+        }
+
+        if ( 'carousel' === $layout ) {
+
+            add_filter( 'all_listings_wrapper', 'all_listings_wrapper' );
+
+            if ( $section_title || $view_more_label ) {
+                ?>
+                <div class="all_listing_header">
+                    <h1><?php echo esc_attr( $section_title ); ?></h1>
+                    <a <?php echo esc_attr( $attr ); ?>>
+                        <?php echo esc_attr( $view_more_label ); ?>
+                    </a>
+                </div>
+                <?php
+            }
+        }
+        ?>
+
+        <div id="listing-<?php echo esc_html( $layout ); ?>">
+            <?php wpwax_run_shortcode( 'directorist_all_listing', $atts ); ?>
+        </div>
+
+        <?php
     }
 }
 
