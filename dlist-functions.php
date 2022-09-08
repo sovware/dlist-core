@@ -472,17 +472,17 @@ if ( ! function_exists( 'dlist_share_post' ) ) {
 			<ul class="social-share list-unstyled">
 				<li>
 					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" title="<?php esc_html_e( 'Facebook', 'dlist-core' ); ?>">
-						<i class="fab fa-facebook"></i>
+						<?php directorist_icon( 'fab fa-facebook' ); ?>
 					</a>
 				</li>
 				<li>
 					<a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php echo htmlspecialchars( urlencode( html_entity_decode( get_the_title(), ENT_COMPAT, 'UTF-8' ) ), ENT_COMPAT, 'UTF-8' ); ?>" target="_blank" title="<?php esc_html_e( 'Tweet', 'dlist-core' ); ?>">
-						<i class="fab fa-twitter"></i>
+						<?php directorist_icon( 'fab fa-twitter' ); ?>
 					</a>
 				</li>
 				<li>
 					<a href="http://linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink(); ?>" target="_blank" title="<?php esc_html_e( 'LinkedIn', 'dlist-core' ); ?>">
-						<i class="fab fa-linkedin-in"></i>
+						<?php directorist_icon( 'fab linkedin-in' ); ?>
 					</a>
 				</li>
 			</ul>
@@ -515,22 +515,22 @@ function dlist_author_social() {
 			<?php
 			if ( $facebook ) {
 				?>
-				<li><a href="<?php echo esc_url( $facebook ); ?>"><i class="fab fa-facebook"></i></a></li>
+				<li><a href="<?php echo esc_url( $facebook ); ?>"><?php directorist_icon( 'fab fa-facebook' ); ?></a></li>
 				<?php
 			}
 			if ( $twitter ) {
 				?>
-				<li><a href="<?php echo esc_url( $twitter ); ?>"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="<?php echo esc_url( $twitter ); ?>"><?php directorist_icon( 'fab fa-twitter' ); ?></a></li>
 				<?php
 			}
 			if ( $linkedin ) {
 				?>
-				<li><a href="<?php echo esc_url( $linkedin ); ?>"><i class="fab fa-linkedin-in"></i></a></li>
+				<li><a href="<?php echo esc_url( $linkedin ); ?>"><?php directorist_icon( 'fab linkedin-in' ); ?></a></li>
 				<?php
 			}
 			if ( $google_plus ) {
 				?>
-				<li><a href="<?php echo esc_url( $google_plus ); ?>"><i class="fab fa-google-plus-g"></i></a></li>
+				<li><a href="<?php echo esc_url( $google_plus ); ?>"><?php directorist_icon( 'fab fa-google-plus-g' ); ?></a></li>
 				<?php
 			}
 			?>

@@ -32,16 +32,15 @@ $categories = get_categories( $args );
 		foreach ( $categories as $cat ) {
 			$link      = is_directorist() ? \ATBDP_Permalink::atbdp_get_category_page( (object) $cat ) : '';
 			$icon      = get_cat_icon( $cat->term_id );
-			$icon      = 'none' !== $icon ? $icon : 'la-tag';
-			$icon_type = substr( $icon, 0, 2 );
-			$icon      = ( 'la' === $icon_type ) ? $icon_type . ' ' . $icon : 'fa ' . $icon;
 			$cat_count = dlist_all_categories_after_category_name( '', $cat );
 			$bg_color  = ' color-' . $i;
 			?>
 
 			<div class="category-slider__single">
-				<span class="category-icon <?php echo esc_attr( $icon . $bg_color ); ?>" aria-hidden="true"></span>
-				<a href="<?php echo esc_url( $link ); ?>" class="stretched-link"><?php echo esc_attr( $cat->name ); ?></a>
+				<?php directorist_icon( $icon, true, 'category-icon ' . $bg_color ); ?>
+					<a href="<?php echo esc_url( $link ); ?>" class="stretched-link">
+						<?php echo esc_attr( $cat->name ); ?>
+					</a>
 				<?php echo wp_kses_post( $cat_count ); ?>
 			</div>
 

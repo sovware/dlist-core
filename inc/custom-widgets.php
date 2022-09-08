@@ -36,7 +36,7 @@ class dlist_subscribe_widget extends WP_Widget
                         <form action="<?php echo esc_url($form); ?>" method="post">
                             <input type="email" class="form-control m-bottom-20"
                                    placeholder="<?php echo esc_html($title); ?>">
-                            <button class="submit-btn" type="submit"><span class="la la-paper-plane-o"></span></button>
+                            <button class="submit-btn" type="submit"><?php directorist_icon( 'las la-paper-plane' ); ?></button>
                         </form>
                     </div>
                 </div>
@@ -351,7 +351,7 @@ class dlist_connect_follow_widget extends WP_Widget
                                 if ($link_text): ?>
                                     <li>
                                         <a href="<?php echo esc_url($link_url); ?>" class="<?php echo esc_attr($link_text) ?>">
-                                            <span class="fab fa-<?php echo esc_attr($link_text) ?>"></span>
+                                        <?php directorist_icon( 'fab fa-' . $link_text ); ?>
                                         </a>
                                     </li>
                                 <?php endif;
@@ -465,7 +465,7 @@ class dlist_search_widget extends WP_Widget
                         <input type="search" value="<?php echo esc_attr(get_search_query()); ?>" name="s"
                                class="fc--rounded"
                                placeholder="<?php echo esc_attr_x('Search', 'placeholder', 'dlist-core'); ?>">
-                        <button value="search" type="submit"><i class="la la-search"></i></button>
+                        <button value="search" type="submit"><?php directorist_icon( 'las la-search' ); ?></button>
                     </div>
                 </form>
             </div>

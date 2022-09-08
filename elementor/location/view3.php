@@ -49,7 +49,9 @@ $locations = get_categories( $args );
 								<span class="sub-location"><?php echo esc_attr( $loc->name ); ?></span>
 							<?php } ?>
 							<div>
-								<a href="<?php echo esc_url( $link ); ?>" class="stretched-link"><?php echo esc_attr( $loc->name ); ?> <i class="la la-long-arrow-right"></i></a>
+								<a href="<?php echo esc_url( $link ); ?>" class="stretched-link"><?php echo esc_attr( $loc->name ); ?> 
+									<?php directorist_icon( 'las la-long-arrow-alt-right' ); ?>
+								</a>
 								<?php echo wp_kses_post( $count ); ?>
 							</div>
 						</div>

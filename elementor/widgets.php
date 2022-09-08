@@ -1313,7 +1313,7 @@ class dlist_videoPopup extends Widget_Base
             <div class="content_above">
                 <?php if ( $video_link['url'] ) { ?>
                     <a href="<?php echo esc_url($video_link['url']); ?>" class="video-iframe btn-play">
-                        <span class="btn-icon"><i class="la la-youtube-play"></i></span>
+                        <?php directorist_icon( 'las la-youtube', true, 'btn-icon' ); ?>
                         <span><?php echo esc_attr($btn); ?></span>
                     </a>
                 <?php } ?>
@@ -5131,7 +5131,7 @@ class dlist_Subscribe extends Widget_Base
                             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-8 offset-sm-2">
                                 <form action="<?php echo esc_url($action); ?>" method="get" class="subscribe-form m-top-40">
                                     <div class="form-group">
-                                        <span class="la la-envelope-o"></span>
+                                        <?php directorist_icon( 'las la-envelope-o' ); ?>
                                         <input type="email" placeholder="<?php echo esc_attr_x('Enter your email', 'placeholder', 'dlist-core'); ?>" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
                                     </div>
                                     <input type="submit" value="<?php echo esc_attr($btn); ?>" class="btn btn-gradient btn-gradient-one">

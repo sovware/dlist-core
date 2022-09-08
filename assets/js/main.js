@@ -1,14 +1,13 @@
 /* eslint-disable */
 jQuery(document).ready(function(){
   (function ($) {
+    var iconLeft  = directorist.assets_url + "icons/line-awesome/svgs/angle-left-solid.svg";
+    var iconRight = directorist.assets_url + "icons/line-awesome/svgs/angle-right-solid.svg";
     //category slider
     $(".category-slider").owlCarousel({
       items: 6,
       nav: true,
-      navText: [
-        '<span class="la la-angle-left"></span>',
-        '<span class="la la-angle-right"></span>',
-      ],
+      navText: [directorist.icon_markup.replace('##URL##', iconLeft).replace('##CLASS##', ''), directorist.icon_markup.replace('##URL##', iconRight).replace('##CLASS##', '')],
       dots: true,
       margin: 30,
       responsive: {
@@ -34,10 +33,7 @@ jQuery(document).ready(function(){
     $(".locations_carousel").owlCarousel({
       items: 4,
       nav: true,
-      navText: [
-        '<span class="la la-angle-left"></span>',
-        '<span class="la la-angle-right"></span>',
-      ],
+      navText: [directorist.icon_markup.replace('##URL##', iconLeft).replace('##CLASS##', ''), directorist.icon_markup.replace('##URL##', iconRight).replace('##CLASS##', '')],
       dots: false,
       margin: 30,
       responsive: {
@@ -73,10 +69,7 @@ jQuery(document).ready(function(){
         loop: checkData(JSON.parse(elm.dataset.carouselLoop), true),
         autoplay: checkData(JSON.parse(elm.dataset.carouselAutoplay), true),
         autoplayTimeout: checkData(parseInt(elm.dataset.carouselDelay), 3000), /* delay */
-        navText: [
-          '<span class="la la-angle-left"></span>',
-          '<span class="la la-angle-right"></span>',
-        ],
+        navText: [directorist.icon_markup.replace('##URL##', iconLeft).replace('##CLASS##', ''), directorist.icon_markup.replace('##URL##', iconRight).replace('##CLASS##', '')],
         dots: false,
         margin: 30,
         responsive: {
@@ -121,8 +114,5 @@ jQuery(document).ready(function(){
         loop: true
       });
     }
-
-
-
   })(jQuery);
 });

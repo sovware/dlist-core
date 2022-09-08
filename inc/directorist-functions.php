@@ -5,13 +5,13 @@ function dlist_listings_view_as() {
 	?>
 	<div class="view-mode">
 		<a class="action-btn ab-grid" href="<?php echo add_query_arg( 'view', 'grid' ); ?>">
-			<span class="la la-th-large"></span>
+			<?php directorist_icon( 'las la-th-large' ); ?>
 		</a>
 		<a class="action-btn ab-list" href="<?php echo add_query_arg( 'view', 'list' ); ?>">
-			<span class="la la-th-list"></span>
+			<?php directorist_icon( 'las la-list' ); ?>
 		</a>
 		<a class="action-btn ab-map" href="<?php echo add_query_arg( 'view', 'map' ); ?>">
-			<span class="la la-map"></span>
+			<?php directorist_icon( 'las la-map' ); ?>
 		</a>
 	</div>
 	<?php
@@ -25,10 +25,10 @@ function dlist_listings_map_view_as() {
 	?>
 	<div class="view-mode-2 view-as">
 		<a data-view="grid" class="action-btn-2 ab-grid map-view-grid <?php echo 'grid' == $view_as ? esc_html( 'active' ) : ''; ?>">
-			<span class="la la-th-large"></span>
+			<?php directorist_icon( 'las la-th-large' ); ?>
 		</a>
 		<a data-view="list" class="action-btn-2 ab-list map-view-list <?php echo 'list' == $view_as ? esc_html( 'active' ) : ''; ?>">
-			<span class="la la-list"></span>
+			<?php directorist_icon( 'las la-list' ); ?>
 		</a>
 	</div>
 	<?php
@@ -117,7 +117,7 @@ function dlist_search_form_fields( $more = 'yes' ) {
 			<div class="single_search_field atbdp_map_address_field">
 				<div class="atbdp_get_address_field">
 					<input type="text" id="address" name="address" autocomplete="off" value="<?php echo esc_attr( $address ); ?>" placeholder="<?php echo esc_html( $search_location_placeholder ); ?>" <?php echo esc_attr( $require_loc ); ?> class="form-control location-name">
-					<span class="atbd_get_loc la la-crosshairs"></span>
+					<?php directorist_icon( 'las la-crosshairs', true, 'atbd_get_loc' ); ?>
 				</div>
 				<?php
 				$select_listing_map = get_directorist_option( 'select_listing_map', 'google' );
@@ -136,7 +136,7 @@ function dlist_search_form_fields( $more = 'yes' ) {
 	<div class="atbd_submit_btn">
 		<button type="submit" class="btn_search"><?php echo esc_attr( $search_listing_text ); ?></button>
 		<?php if ( $more && $display_more_filter_search ) { ?>
-			<button class="more-filter"><span class="<?php atbdp_icon_type( true ); ?>-filter"></span></button>
+			<button class="more-filter"><?php directorist_icon( 'las la-filter' )?></button>
 		<?php } ?>
 	</div>
 	<?php
@@ -294,7 +294,8 @@ function dlist_more_filter_search_form() {
 										echo esc_html( "checked='checked'" );
 									}
 									?>>
-									<span><i class="fa fa-clock-o"></i><?php esc_html_e( 'Open Now', 'dlist-core' ); ?> </span>
+									<?php directorist_icon( 'fab fa-clock-o' ); ?>
+									<?php esc_html_e( 'Open Now', 'dlist-core' ); ?> </span>
 								</label>
 							</div>
 						</div>
@@ -483,7 +484,7 @@ function dlist_listings_review_price() {
 
 			if ( $display_review ) {
 				$average = ATBDP()->review->get_average( get_the_ID() );
-				echo sprintf( '<span class="atbd_meta atbd_listing_rating">%s<i class="%s-star"></i></span>', esc_attr( $average ), atbdp_icon_type() );
+				echo sprintf( '<span class="atbd_meta atbd_listing_rating">%s%s</span>', esc_attr( $average ), directorist_icon( 'las la-star', false ) );
 			}
 
 			$atbd_listing_pricing = $atbd_listing_pricing ? $atbd_listing_pricing : '';
@@ -574,7 +575,7 @@ function dlist_before_listing_section() {
 			?>
 			<div class="atbd_content_module__tittle_area">
 				<div class="atbd_area_title">
-					<h4><span class="la la-image"></span>
+					<?php directorist_icon( 'las la-image' ); ?>
 						<?php echo esc_attr( $title ); ?>
 					</h4>
 				</div>
@@ -957,7 +958,7 @@ function dlist_listing_cat() {
 				<div class="atbd_listting_category">
 					<?php
 					$cat_icon      = '';
-					$category_icon = ! empty( $cats ) ? get_cat_icon( $cats[0]->term_id ) : atbdp_icon_type() . '-tags';
+					$category_icon = ! empty( $cats ) ? get_cat_icon( $cats[0]->term_id ) : directorist_icon( 'las la-tags' );
 					$icon_type     = substr( $category_icon, 0, 2 );
 					$icon          = 'la' === $icon_type ? $icon_type . ' ' . $category_icon : 'fa ' . $category_icon;
 					if ( 'no' != $icon_type ) {
@@ -977,7 +978,7 @@ function dlist_listing_cat() {
 									$link  = ATBDP_Permalink::atbdp_get_category_page( $cat );
 									$space = str_repeat( ' ', 1 );
 
-									$category_icon = ! empty( $cats ) ? get_cat_icon( $cat->term_id ) : atbdp_icon_type() . '-tags';
+									$category_icon = ! empty( $cats ) ? get_cat_icon( $cat->term_id ) : directorist_icon( 'las la-tags' );
 									$icon_type     = substr( $category_icon, 0, 2 );
 									$icon          = 'la' === $icon_type ? $icon_type . ' ' . $category_icon : 'fa ' . $category_icon;
 
@@ -998,7 +999,7 @@ function dlist_listing_cat() {
 			?>
 			<div class="atbd_content_left">
 				<div class="atbd_listting_category">
-					<?php echo sprintf( '<a href="#"> <span class="%s-tags"></span>%s</a>', atbdp_icon_type( false ), esc_html__( 'Uncategorized', 'dlist-core' ) ); ?>
+					<?php echo sprintf( '<a href="#">%s %s</a>', directorist_icon( 'las la-tags', false ), esc_html__( 'Uncategorized', 'dlist-core' ) ); ?>
 				</div>
 			</div>
 			<?php
@@ -1047,7 +1048,7 @@ function dlist_listing_grid_footer_content() {
 				?>
 				<ul class="atbd_content_right">
 					<li class="atbd_count">
-						<span class="<?php echo atbdp_icon_type(); ?>-eye"></span>
+						<?php directorist_icon( 'las la-eye' ); ?>
 						<?php echo $post_view ? esc_attr( $post_view ) : 0; ?>
 					</li>
 				</ul>
@@ -1073,7 +1074,7 @@ function dlist_listing_grid_list_footer_content() {
 			<ul class="atbd_content_right">
 				<li class="atbd_count">
 					<?php
-					echo sprintf( '<span class="%s-eye"></span>', atbdp_icon_type() );
+					directorist_icon( 'las la-eye' );
 					echo $post_view ? esc_attr( $post_view ) : 0;
 					?>
 				</li>
@@ -1093,7 +1094,7 @@ add_filter( 'atbdp_listings_list_cat_view_count_author', 'dlist_listing_grid_lis
 
 function dlist_footer_listing_with_map() {
 	$footer_style = get_post_meta( get_the_ID(), 'footer_style', true );
-	$default      = '©' . date( 'Y' ) . ' dlist. Made with <span class="la la-heart-o"></span> by <a href="#">AazzTech</a>';
+	$default      = '©' . date( 'Y' ) . ' dlist. Made with ' . directorist_icon( 'las la-heart-o', false ) . ' by <a href="#">AazzTech</a>';
 	$copy_right   = get_theme_mod( 'copy_right', $default );
 
 	echo sprintf( '<div class="listing_map_footer bg-%s">%s</div>', esc_attr( $footer_style ), apply_filters( 'get_the_content', $copy_right ) );
@@ -1383,9 +1384,9 @@ function directorist_dashboard_listing_td_2() {
 			<ul class="rating">
 				<?php
 				$average   = ATBDP()->review->get_average( get_the_ID() );
-				$star      = '<li><span class="la la-star rate_active"></span></li>';
-				$half_star = '<li><span class="la la-star-half-o rate_active"></span></li>';
-				$none_star = '<li><span class="la la-star-o"></span></li>';
+				$star      = '<li>' . directorist_icon( 'las la-star rate_active', false ) . '</li>';
+				$half_star = '<li>' . directorist_icon( 'las la-star-half-o rate_active', false ) . '</li>';
+				$none_star = '<li>' . directorist_icon( 'las la-star-o', false ) . '</li>';
 
 				if ( is_int( $average ) ) {
 					for ( $i = 1; $i <= 5; $i++ ) {
@@ -1437,7 +1438,7 @@ function directorist_dashboard_listing_td_2() {
 				foreach ( $cats as $cat ) {
 					$link          = ATBDP_Permalink::atbdp_get_category_page( $cat );
 					$space         = str_repeat( ' ', 1 );
-					$category_icon = $cats ? get_cat_icon( $cat->term_id ) : atbdp_icon_type() . '-tags';
+					$category_icon = $cats ? get_cat_icon( $cat->term_id ) : directorist_icon( 'las la-tags' );
 					$icon_type     = substr( $category_icon, 0, 2 );
 					$icon          = 'la' === $icon_type ? $icon_type . ' ' . $category_icon : 'fa ' . $category_icon;
 
