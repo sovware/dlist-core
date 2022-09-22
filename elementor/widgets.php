@@ -1313,7 +1313,7 @@ class dlist_videoPopup extends Widget_Base
             <div class="content_above">
                 <?php if ( $video_link['url'] ) { ?>
                     <a href="<?php echo esc_url($video_link['url']); ?>" class="video-iframe btn-play">
-                        <?php directorist_icon( 'las la-youtube', true, 'btn-icon' ); ?>
+                        <?php directorist_icon( 'la la-youtube', true, 'btn-icon' ); ?>
                         <span><?php echo esc_attr($btn); ?></span>
                     </a>
                 <?php } ?>
