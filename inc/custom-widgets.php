@@ -343,7 +343,7 @@ class dlist_connect_follow_widget extends WP_Widget
                     </div>
                 <?php } ?>
                 <div class="widget-content">
-                    <div class="social social--small social--gray ">
+                    <div class="social social--small social--gray">
                         <ul class="d-flex flex-wrap">
                             <?php for ($i = 1; $i <= $instance["social"]; $i++) {
                                 $link_text = !empty($instance["link_text$i"]) ? $instance["link_text$i"] : '';
@@ -351,7 +351,7 @@ class dlist_connect_follow_widget extends WP_Widget
                                 if ($link_text): ?>
                                     <li>
                                         <a href="<?php echo esc_url($link_url); ?>" class="<?php echo esc_attr($link_text) ?>">
-                                        <?php directorist_icon( 'fab fa-' . $link_text ); ?>
+                                            <?php directorist_icon( 'fab fa-' . $link_text ); ?>
                                         </a>
                                     </li>
                                 <?php endif;

@@ -1,0 +1,12 @@
+.idea
+.vscode
+.DS_Store
+sftp-config.json
+package-lock.json
+todo.txt
+notes.txt
+testing.html
+plugin-bundle/*.zip
+node_modules/
+maps
+__*/

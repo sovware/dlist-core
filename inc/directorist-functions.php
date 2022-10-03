@@ -1384,9 +1384,9 @@ function directorist_dashboard_listing_td_2() {
 			<ul class="rating">
 				<?php
 				$average   = ATBDP()->review->get_average( get_the_ID() );
-				$star      = '<li>' . directorist_icon( 'las la-star rate_active', false ) . '</li>';
-				$half_star = '<li>' . directorist_icon( 'las la-star-half-o rate_active', false ) . '</li>';
-				$none_star = '<li>' . directorist_icon( 'las la-star-o', false ) . '</li>';
+				$star      = directorist_icon( 'las la-star', false,'rate_active' );
+				$half_star = directorist_icon( 'las la-star-half-alt', false,'rate_active rate_active-half' );
+				$none_star = directorist_icon( 'lar la-star', false );
 
 				if ( is_int( $average ) ) {
 					for ( $i = 1; $i <= 5; $i++ ) {
