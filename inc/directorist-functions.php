@@ -689,7 +689,7 @@ if ( $quick_log_reg ) {
 		if ( $login_url ) {
 			return sprintf( '<a href="%s" class="access-link">%s</a>', esc_url( $login_url ), esc_attr( $login ) );
 		} else {
-			return sprintf( '<a href="#" class="access-link" data-toggle="modal" data-target="#login_modal">%s</a>', esc_attr( $login ) );
+			return sprintf( '<a href="#" class="access-link" data-toggle="modal" data-target="#theme-login-modal">%s</a>', esc_attr( $login ) );
 		}
 	}
 
@@ -707,7 +707,7 @@ if ( $quick_log_reg ) {
 		if ( $register_url ) {
 			return sprintf( '<a href="%s" class="access-link">%s</a>', esc_url( $register_url ), esc_attr( $register ) );
 		} else {
-			return sprintf( '<a href="#" class="access-link" data-toggle="modal"  data-target="#signup_modal">%s</a>', esc_attr( $register ) );
+			return sprintf( '<a href="#" class="access-link" data-toggle="modal"  data-target="#theme-register-modal">%s</a>', esc_attr( $register ) );
 		}
 	}
 
