@@ -659,7 +659,7 @@ add_filter( 'atbdp_search_listing_jquery_dependency', 'dlist_search_listing_jque
 
 // Directorist atbdp_search_listing dependency mainta
 
-function my_login_fail() {
+function dlist_my_login_fail() {
 	$referrer = $_SERVER['HTTP_REFERER'];
 	if ( $referrer && ! strstr( $referrer, 'wp-login' ) && ! strstr( $referrer, 'wp-admin' ) ) {
 		wp_redirect( $referrer . '?login=failed' );
@@ -667,13 +667,13 @@ function my_login_fail() {
 	}
 }
 
-add_action( 'wp_login_failed', 'my_login_fail' );
+add_action( 'wp_login_failed', 'dlist_my_login_fail' );
 
 
 // Login and Register pop
 $quick_log_reg = get_theme_mod( 'quick_log_reg', true );
 if ( $quick_log_reg ) {
-	function login_for_booking() {
+	function dlist_login_for_booking() {
 		$login_url = get_theme_mod( 'login_btn_url', false );
 		if ( $login_url ) {
 			return sprintf( '<a href="%s" class="access-link login-booking">%s</a>', esc_url( $login_url ), __( 'Logins for Booking', 'dlist-core' ) );
@@ -681,7 +681,7 @@ if ( $quick_log_reg ) {
 			return sprintf( '<a href="#" class="access-link login-booking" data-toggle="modal" data-target="#login_modal">%s</a>', __( 'Logins for Booking', 'dlist-core' ) );
 		}
 	}
-	add_filter( 'login_for_booking', 'login_for_booking' );
+	add_filter( 'dlist_login_for_booking', 'dlist_login_for_booking' );
 
 	function dlist_listing_form_login_link() {
 		$login_url = get_theme_mod( 'login_btn_url', false );
@@ -719,7 +719,7 @@ if ( $quick_log_reg ) {
 	add_filter( 'atbdp_live_chat_registration_link', 'dlist_listing_form_signup_link' );
 }
 
-function replace_in_content( $content, $order_id = 0, $listing_id = 0, $user = null ) {
+function dlist_replace_in_content( $content, $order_id = 0, $listing_id = 0, $user = null ) {
 	if ( ! $listing_id ) {
 		$listing_id = (int) get_post_meta( $order_id, '_listing_id', true );
 	}
@@ -752,7 +752,7 @@ function replace_in_content( $content, $order_id = 0, $listing_id = 0, $user = n
 	return $c;
 }
 
-function custom_wp_new_user_notification_email( $wp_new_user_notification_email, $user, $blogname ) {
+function dlist_custom_wp_new_user_notification_email( $wp_new_user_notification_email, $user, $blogname ) {
 	$user_password = get_user_meta( $user->ID, '_atbdp_generated_password', true );
 
 	$sub                                       = get_directorist_option( 'email_sub_registration_confirmation', esc_html__( 'Registration Confirmation!', 'dlist-core' ) );
@@ -771,7 +771,7 @@ You can login now using the below credentials:
 			'dlist-core'
 		)
 	);
-	$body                                      = replace_in_content( $body, null, null, $user );
+	$body                                      = dlist_replace_in_content( $body, null, null, $user );
 	$wp_new_user_notification_email['subject'] = sprintf( '%s', $sub );
 	$wp_new_user_notification_email['message'] = preg_replace( '/<br \/>/', '', $body ) . '
                 
@@ -780,13 +780,13 @@ You can login now using the below credentials:
 	return $wp_new_user_notification_email;
 }
 
-function atbdp_wp_mail_from_name() {
+function dlist_atbdp_wp_mail_from_name() {
 	$site_name = get_option( 'blogname' );
 	return $site_name;
 }
 
-add_filter( 'wp_new_user_notification_email', 'custom_wp_new_user_notification_email', 10, 3 );
-add_filter( 'wp_mail_from_name', 'atbdp_wp_mail_from_name' );
+add_filter( 'wp_new_user_notification_email', 'dlist_custom_wp_new_user_notification_email', 10, 3 );
+add_filter( 'wp_mail_from_name', 'dlist_atbdp_wp_mail_from_name' );
 
 
 // All Listing Location and Category image si
@@ -939,13 +939,13 @@ function dlist_atbdp_settings_menus( $settings ) {
 
 add_filter( 'atbdp_settings_menus', 'dlist_atbdp_settings_menus' );
 
-function single_listing_template( $settings ) {
-	 unset( $settings['single_listing_template'] );
+function dlist_single_listing_template( $settings ) {
+	 unset( $settings['dlist_single_listing_template'] );
 	unset( $settings['enable_single_location_taxonomy'] );
 	return $settings;
 }
 
-add_filter( 'atbdp_single_listings_settings_fields', 'single_listing_template' );
+add_filter( 'atbdp_single_listings_settings_fields', 'dlist_single_listing_template' );
 
 // improved Listing cart bottom area
 function dlist_listing_cat() {
@@ -1339,7 +1339,7 @@ if ( ! function_exists( 'dlist_booking_db' ) ) {
 	}
 }
 
-function is_create_booking_database() {
+function dlist_is_create_booking_database() {
 	 $booking_database = get_option( 'dlist_booking' );
 	if ( ! $booking_database ) {
 		dlist_booking_db();
@@ -1347,14 +1347,14 @@ function is_create_booking_database() {
 }
 
 // register_activation_hook(__FILE__, 'dlist_booking_db');
-add_action( 'plugins_loaded', 'is_create_booking_database' );
+add_action( 'plugins_loaded', 'dlist_is_create_booking_database' );
 
 // popular category team.
-function search_home_popular_category( $counter ) {
+function dlist_search_home_popular_category( $counter ) {
 	 $color = 'color-' . $counter;
 	echo 'class="' . $color . '"';
 }
-add_action( 'search_home_popular_category', 'search_home_popular_category' );
+add_action( 'dlist_search_home_popular_category', 'dlist_search_home_popular_category' );
 
 function atbdp_popular_category_loop( $counter ) {
 	$counter++;
@@ -1363,16 +1363,16 @@ function atbdp_popular_category_loop( $counter ) {
 add_filter( 'atbdp_popular_category_loop', 'atbdp_popular_category_loop' );
 
 
-function directorist_dashboard_listing_th_2(){
+function dlist_directorist_dashboard_listing_th_2(){
 	$review = get_directorist_option( 'enable_review', 1 );
 	if ( ! empty( $review ) ) {
 		echo '<th class="directorist-table-review">' . __( 'Review', 'dlist-core' ) . '</th>';
 	}
 	echo '<th class="directorist-table-category">' . __( 'Category', 'dlist-core' ) . '</th>';
 }
-add_action( 'directorist_dashboard_listing_th_2', 'directorist_dashboard_listing_th_2' );
+add_action( 'dlist_directorist_dashboard_listing_th_2', 'dlist_directorist_dashboard_listing_th_2' );
 
-function directorist_dashboard_listing_td_2() {
+function dlist_directorist_dashboard_listing_td_2() {
 	$review = get_directorist_option( 'enable_review', 1 );
 	$reviews_count = ATBDP()->review->db->count( array( 'post_id' => get_the_ID() ) );
 	$cats          = get_the_terms( get_the_ID(), ATBDP_CATEGORY );
@@ -1451,23 +1451,23 @@ function directorist_dashboard_listing_td_2() {
 	<?php
 }
 
-add_action( 'directorist_dashboard_listing_td_2', 'directorist_dashboard_listing_td_2' );
+add_action( 'dlist_directorist_dashboard_listing_td_2', 'dlist_directorist_dashboard_listing_td_2' );
 
-function atbdp_all_listings_meta_count( $html, $term ) {
+function dlist_atbdp_all_listings_meta_count( $html, $term ) {
 	$total = $term->count;
 	$str = ( 1 == $total ) ? __( ' Listing', 'dlist-core' ) : __( ' Listings', 'dlist-core' );
 	return '<span class="listing-count"> ' . $total . '<span class="listing-label">' . $str . '</span>' . '</span>';
 }
 
-add_filter( 'atbdp_all_locations_after_location_name', 'atbdp_all_listings_meta_count', 10, 2 );
+add_filter( 'atbdp_all_locations_after_location_name', 'dlist_atbdp_all_listings_meta_count', 10, 2 );
 
-function atbdp_all_listings_cat_meta_count( $html, $term ) {
+function dlist_atbdp_all_listings_cat_meta_count( $html, $term ) {
 	return $term->count;
 }
 
-add_filter( 'atbdp_all_categories_after_category_name', 'atbdp_all_listings_cat_meta_count', 10, 2 );
+add_filter( 'atbdp_all_categories_after_category_name', 'dlist_atbdp_all_listings_cat_meta_count', 10, 2 );
 
-function directorist_listing_types() {
+function dlist_directorist_listing_types() {
 	$all_types	= directory_types();
 	$types		= [];
 	foreach( $all_types as $type) {

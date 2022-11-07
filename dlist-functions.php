@@ -285,7 +285,7 @@ add_action( 'save_post', 'dlist_footer_style_control' );
 /**
  * New User registration
  */
-function vb_reg_new_user() {
+function dlist_vb_reg_new_user() {
 	// Verify nonce
 	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'vb_new_user' ) ) {
 		die( 'Ooops, something went wrong, please try again later.' );
@@ -346,7 +346,7 @@ function vb_reg_new_user() {
 		if ( ! is_wp_error( $user_id ) ) {
 			update_user_meta( $user_id, '_atbdp_generated_password', $password );
 			wp_new_user_notification($user_id, null, 'admin');
-			ATBDP()->email->custom_wp_new_user_notification_email($user_id);
+			ATBDP()->email->dlist_custom_wp_new_user_notification_email($user_id);
 			$data['state'] 			= true;
 			$data['message'] 		= __( 'Registration completed, redirecting..', 'dlist-core' );
 			$data['redirect_url'] 	= $redirect_url;
@@ -365,8 +365,8 @@ function vb_reg_new_user() {
 	wp_send_json( $data );
 }
 
-add_action( 'wp_ajax_register_user', 'vb_reg_new_user' );
-add_action( 'wp_ajax_nopriv_register_user', 'vb_reg_new_user' );
+add_action( 'wp_ajax_register_user', 'dlist_vb_reg_new_user' );
+add_action( 'wp_ajax_nopriv_register_user', 'dlist_vb_reg_new_user' );
 
 /* Login & Register Configuration */
 
@@ -554,13 +554,13 @@ function dlist_post_tags() {
 	}
 }
 
-function mail_desc() {
+function dlist_mail_desc() {
 	$desc = __( '<strong>Login <a href="https://mailchimp.com" target="_blank">Mailchimp</a> > Profile > Audience > Create  Audience / select existing audience</strong><br> Then go to <strong>Signup forms > Embedded forms </strong> and scroll down then you will found <strong>Copy/paste onto your site</strong> textarea including some text. Copy the form action URL and paste it here. <b style="color: green;">[For more details follow theme docs: <a href="http://directorist.com/docs/page-builder/" target="_blank">Page Builder</a>]</b>', 'dlist-core' );
 	return $desc;
 }
 
 
-function az_template( $template, $settings ) {
+function dlist_az_template( $template, $settings ) {
 	$az_dir = plugin_dir_path( __FILE__ );
 	$file   = $az_dir . $template . '.php';
 	ob_start();
@@ -581,7 +581,7 @@ function wpwax_run_shortcode( $shortcode, $atts = array() ) {
 }
 
 // blog post estimated reading time.
-function reading_time( $content = '' ) {
+function dlist_reading_time( $content = '' ) {
 	$clean_content = strip_shortcodes( $content );
 	$clean_content = strip_tags( $clean_content );
 	$word_count    = str_word_count( $clean_content );

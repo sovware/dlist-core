@@ -616,7 +616,7 @@ class Dlist_Categories extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
                 'condition' => [
                     'cat_type!' => ['style3'],
@@ -630,7 +630,7 @@ class Dlist_Categories extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
                 'condition' => [
                     'cat_type!' => ['style3'],
@@ -722,9 +722,9 @@ class Dlist_Categories extends Widget_Base
         $cat_type   = $settings['cat_type'];
 
         if ('style3' === $cat_type) {
-            az_template('/elementor/cat/view2', $settings);
+            dlist_az_template('/elementor/cat/view2', $settings);
         } else {
-            az_template('/elementor/cat/view1', $settings);
+            dlist_az_template('/elementor/cat/view1', $settings);
         }
     }
 }
@@ -787,7 +787,7 @@ class Dlist_Locations extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
                 'condition' => [
                     'layout' => ['grid','list'],
@@ -801,7 +801,7 @@ class Dlist_Locations extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
                 'condition' => [
                     'layout' => ['grid','list'],
@@ -889,11 +889,11 @@ class Dlist_Locations extends Widget_Base
         $layout     = $settings['layout'];
 
         if ('masonry' === $layout) {
-            az_template('/elementor/location/view2', $settings);
+            dlist_az_template('/elementor/location/view2', $settings);
         } elseif ('carousel' === $layout) {
-            az_template('/elementor/location/view3', $settings);
+            dlist_az_template('/elementor/location/view3', $settings);
         } else {
-            az_template('/elementor/location/view1', $settings);
+            dlist_az_template('/elementor/location/view1', $settings);
         }
     }
 }
@@ -1142,7 +1142,7 @@ class dlist_ContactItems extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        az_template('/elementor/contact/view', $settings);
+        dlist_az_template('/elementor/contact/view', $settings);
     }
 }
 
@@ -1594,7 +1594,7 @@ class Dlist_Listings extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -1605,7 +1605,7 @@ class Dlist_Listings extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -1999,7 +1999,7 @@ class dlist_ListingsCarousel extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
             ]
         );
@@ -2010,7 +2010,7 @@ class dlist_ListingsCarousel extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -2092,7 +2092,7 @@ class dlist_ListingsCarousel extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        az_template('/elementor/listing/view', $settings);
+        dlist_az_template('/elementor/listing/view', $settings);
     }
 }
 
@@ -2776,7 +2776,7 @@ class dlist_SearchForm extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
             ]
         );
 
@@ -2786,7 +2786,7 @@ class dlist_SearchForm extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
             ]
         );
 
@@ -2893,7 +2893,7 @@ class Dlist_SearchResult extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
             ]
         );
@@ -2904,7 +2904,7 @@ class Dlist_SearchResult extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -3317,7 +3317,7 @@ class Dlist_SingleCat extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
             ]
         );
@@ -3328,7 +3328,7 @@ class Dlist_SingleCat extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -3834,7 +3834,7 @@ class Dlist_SingleLoc extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
             ]
         );
@@ -3845,7 +3845,7 @@ class Dlist_SingleLoc extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -4352,7 +4352,7 @@ class Dlist_SingleTag extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['general'],
             ]
         );
@@ -4363,7 +4363,7 @@ class Dlist_SingleTag extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'general',
             ]
         );
@@ -5106,7 +5106,7 @@ class dlist_Subscribe extends Widget_Base
             [
                 'label'       => __('Mailchimp Form Action Url', 'dlist-core'),
                 'type'        => Controls_Manager::URL,
-                'description' => function_exists('mail_desc') ? mail_desc() : '',
+                'description' => function_exists('mail_desc') ? dlist_mail_desc() : '',
             ]
         );
 
@@ -5343,7 +5343,7 @@ class CTA extends Widget_Base
     protected function render()
     {
         $settings   = $this->get_settings_for_display();
-        az_template('/elementor/cta/view', $settings);
+        dlist_az_template('/elementor/cta/view', $settings);
     }
 }
 
@@ -5391,7 +5391,7 @@ class dlist_NeedCategories extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['need-listings'],
             ]
         );
@@ -5402,7 +5402,7 @@ class dlist_NeedCategories extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'need-listings',
             ]
         );
@@ -5604,7 +5604,7 @@ class dlist_NeedLocations extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['need-listings'],
             ]
         );
@@ -5615,7 +5615,7 @@ class dlist_NeedLocations extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'need-listings',
             ]
         );
@@ -5798,7 +5798,7 @@ class dlist_NeedSingleCat extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['need-listings'],
             ]
         );
@@ -5809,7 +5809,7 @@ class dlist_NeedSingleCat extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'need-listings',
             ]
         );
@@ -5892,7 +5892,7 @@ class dlist_NeedSingleLoc extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['need-listings'],
             ]
         );
@@ -5903,7 +5903,7 @@ class dlist_NeedSingleLoc extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'need-listings',
             ]
         );
@@ -5986,7 +5986,7 @@ class dlist_Needs extends Widget_Base
                 'label'    => __('Specify Listing Types', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT2,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => ['need-listings'],
             ]
         );
@@ -5997,7 +5997,7 @@ class dlist_Needs extends Widget_Base
                 'label'    => __('Set Default Listing Type', 'dlist-core'),
                 'type'     => Controls_Manager::SELECT,
                 'multiple' => true,
-                'options'  => function_exists('directorist_listing_types') ? directorist_listing_types() : [],
+                'options'  => function_exists('dlist_directorist_listing_types') ? dlist_directorist_listing_types() : [],
                 'default'  => 'need-listings',
             ]
         );
