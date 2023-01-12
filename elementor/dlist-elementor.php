@@ -30,7 +30,7 @@ if (!class_exists('dlistWidgets')) {
         public function init()
         {
             // Add Plugin actions
-            add_action('elementor/widgets/widgets_registered', [$this, 'init_widgets']);
+            add_action('elementor/widgets/register', [$this, 'init_widgets']);
             add_action('elementor/elements/categories_registered', [$this, 'dlist_widget_category']);
         }
 
