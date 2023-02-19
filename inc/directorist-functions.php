@@ -1261,32 +1261,27 @@ if ( $display_sortby_dropdown ) {
 
 // Set dashboard template.
 
-function dlist_set_user_dashboard_page( $page_template ) {
-	$dashboardPageId = class_exists( 'Directorist_Base' ) ? get_directorist_option( 'user_dashboard' ) : '';
-	$authorPageId    = class_exists( 'Directorist_Base' ) ? get_directorist_option( 'author_profile_page' ) : '';
-	global $post;
-	$page_id = ( $post && $post->ID ) ? $post->ID : '';
-	switch ( $page_id ) {
-		case $dashboardPageId:
-			$args = array(
-				'ID'           => $page_id,
-				'post_content' => '',
-			);
-			update_post_meta( $page_id, '_wp_page_template', 'template-parts/dashboard.php' );
-			wp_update_post( $args );
-			$page_template = get_template_directory() . '/template-parts/dashboard.php';
-			break;
+function dlist_set_user_dashboard_page( $template ) {
 
-		case $authorPageId:
-			$args = array(
-				'ID'           => $page_id,
-				'post_content' => '',
-			);
-			update_post_meta( $page_id, '_wp_page_template', 'template-parts/author.php' );
-			wp_update_post( $args );
-			$page_template = get_template_directory() . '/template-parts/author.php';
+	global $post;
+
+	$authorPageId = class_exists( 'Directorist_Base' ) ? get_directorist_option( 'author_profile_page' ) : '';
+	$page_id      = ( $post && $post->ID ) ? $post->ID : '';
+	if ( $page_id == (int)$authorPageId ) {
+
+		$args = array(
+			'ID'           => $page_id,
+			'post_content' => '',
+		);
+
+		update_post_meta( $page_id, '_wp_page_template', 'template-parts/author.php' );
+
+		wp_update_post( $args );
+
+		$template = get_template_directory() . '/template-parts/author.php';
 	}
-	return $page_template;
+
+	return $template;
 }
 
 add_action( 'page_template', 'dlist_set_user_dashboard_page' );
@@ -1354,12 +1349,14 @@ function dlist_search_home_popular_category( $counter ) {
 	 $color = 'color-' . $counter;
 	echo 'class="' . $color . '"';
 }
+
 add_action( 'dlist_search_home_popular_category', 'dlist_search_home_popular_category' );
 
 function atbdp_popular_category_loop( $counter ) {
 	$counter++;
 	return $counter = $counter > 6 ? $counter = 1 : $counter;
 }
+
 add_filter( 'atbdp_popular_category_loop', 'atbdp_popular_category_loop' );
 
 
