@@ -22,6 +22,10 @@ function dlist_core_textdomain() {
 
 add_action( 'plugins_loaded', 'dlist_core_textdomain' );
 
+if ( wp_get_theme()->Name !== 'dList') {
+    return;
+}
+
 require_once plugin_dir_path( __FILE__ ) . 'inc/custom-widgets.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/directorist-functions.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/demo-importer.php';
