@@ -22,7 +22,9 @@ function dlist_core_textdomain() {
 
 add_action( 'plugins_loaded', 'dlist_core_textdomain' );
 
-if ( wp_get_theme()->Name !== 'dList') {
+$theme = wp_get_theme();
+$parent_theme = $theme->parent();
+if ($theme->Name !== 'dList' && (!is_object($parent_theme) || $parent_theme->Name !== 'dList')) {
     return;
 }
 
