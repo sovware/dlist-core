@@ -3,7 +3,7 @@
  * Description.
  *
  * @package WordPress
- * @author  AazzTech
+ * @author  WpWax
  * @since   1.0
  * @version 1.0
  */
