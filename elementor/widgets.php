@@ -2253,6 +2253,7 @@ class dlist_ListingsMap extends Widget_Base
                     'title' => esc_html__(' Title', 'dlist-core'),
                     'date'  => esc_html__(' Date', 'dlist-core'),
                     'price' => esc_html__(' Price', 'dlist-core'),
+                    'rand' => esc_html__(' Random', 'dlist-core'),
                 ]
             ]
         );
