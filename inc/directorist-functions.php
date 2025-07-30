@@ -22,16 +22,6 @@ add_action( 'atbdp_listings_header_sort_by_button', 'dlist_listings_view_as' );
 // View as of "listing with map view"
 function dlist_listings_map_view_as() {
 	$view_as = isset( $_POST['view_as'] ) ? $_POST['view_as'] : 'grid';
-	?>
-	<div class="view-mode-2 view-as">
-		<a data-view="grid" class="action-btn-2 ab-grid map-view-grid <?php echo 'grid' == $view_as ? esc_html( 'active' ) : ''; ?>">
-			<?php directorist_icon( 'las la-th-large' ); ?>
-		</a>
-		<a data-view="list" class="action-btn-2 ab-list map-view-list <?php echo 'list' == $view_as ? esc_html( 'active' ) : ''; ?>">
-			<?php directorist_icon( 'las la-list' ); ?>
-		</a>
-	</div>
-	<?php
 }
 
 add_filter( 'atbdp_listings_with_map_header_sort_by_button', 'dlist_listings_map_view_as' );
