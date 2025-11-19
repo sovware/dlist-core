@@ -5,22 +5,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class DlistDemo_Importer {
 
-
 	protected static $instance;
 
 	public function __construct() {
-		// Link from plugins page
-		add_filter(
-			'plugin_action_links_wpwax-demo-importer/wpwax-demo-importer.php',
-			function ( $links ) {
-				$mylinks = array(
-					'<a href="' . esc_url( admin_url( 'tools.php?page=fw-backups-demo-content' ) ) . '">' . __( 'Install Demo Contents', 'dlist-core' ) . '</a>',
-				);
-				return array_merge( $links, $mylinks );
-			}
-		);
-
-		// Confirmation Text
 		add_filter(
 			'wpwax_demo_importer_confirmation',
 			function () {
@@ -55,22 +42,22 @@ class DlistDemo_Importer {
 		$demos_array = array(
 			'demo1' => array(
 				'title'        => __( 'Home Static', 'dlist-core' ),
-				'screenshot'   => 'http://demo.directorist.com/theme/demo-content/dlist/dlist-static.jpg',
+				'screenshot'   => 'http://directorist.com/demo-content/dlist/dlist-static.jpg',
 				'preview_link' => 'http://demo.directorist.com/theme/dlist/',
 			),
 			'demo2' => array(
 				'title'        => __( 'Home Map', 'dlist-core' ),
-				'screenshot'   => 'http://demo.directorist.com/theme/demo-content/dlist/dlist-map.jpg',
+				'screenshot'   => 'http://directorist.com/demo-content/dlist/dlist-map.jpg',
 				'preview_link' => 'http://demo.directorist.com/theme/dlist/home-map/',
 			),
 			'demo3' => array(
 				'title'        => __( 'Home Video', 'dlist-core' ),
-				'screenshot'   => 'http://demo.directorist.com/theme/demo-content/dlist/dlist-video.jpg',
+				'screenshot'   => 'http://directorist.com/demo-content/dlist/dlist-video.jpg',
 				'preview_link' => 'http://demo.directorist.com/theme/dlist/home-video/',
 			),
 		);
 
-		$remote_server_url = 'http://demo.directorist.com/theme/demo-content/dlist';
+		$remote_server_url = get_template_directory_uri() . '/demo-content';
 
 		foreach ( $demos_array as $id => $data ) {
 			$demo = new FW_Ext_Backups_Demo(
