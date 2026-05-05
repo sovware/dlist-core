@@ -530,7 +530,8 @@ class dlist_Blogs extends Widget_Base
             'post_type'      => 'post',
             'posts_per_page' => esc_attr($post_count),
             'order'          => esc_attr($order_list),
-            'orderby '       => esc_attr($order_by)
+            'orderby '       => esc_attr($order_by),
+            'no_found_rows'  => true,
         );
 
         $posts = new WP_Query($args); ?>
