@@ -4993,33 +4993,50 @@ class dlist_Team extends Widget_Base
             ]
         );
 
+        $repeater = new Repeater();
+
+        $repeater->add_control(
+            'name',
+            [
+                'label'       => __('Name', 'dlist-core'),
+                'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+                'default'     => 'Mark Tony',
+                'render_type' => 'template',
+            ]
+        );
+
+        $repeater->add_control(
+            'designation',
+            [
+                'label'       => __('Designation', 'dlist-core'),
+                'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+                'default'     => 'Software Developer',
+                'render_type' => 'template',
+            ]
+        );
+
+        $repeater->add_control(
+            'image',
+            [
+                'label'       => __('Author Image', 'dlist-core'),
+                'type'        => Controls_Manager::MEDIA,
+                'dynamic'     => [
+                    'active' => true,
+                ],
+                'render_type' => 'template',
+            ]
+        );
+
         $this->add_control(
             'teams',
             [
                 'label'       => __('teams', 'dlist-core'),
                 'type'        => Controls_Manager::REPEATER,
                 'title_field' => '{{{ name }}}',
-                'fields'      => [
-                    [
-                        'name'        => 'name',
-                        'label'       => __('Name', 'dlist-core'),
-                        'type'        => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'default'     => 'Mark Tony'
-                    ],
-                    [
-                        'name'        => 'designation',
-                        'label'       => __('Designation', 'dlist-core'),
-                        'type'        => Controls_Manager::TEXT,
-                        'label_block' => true,
-                        'default'     => 'Software Developer'
-                    ],
-                    [
-                        'name'  => 'image',
-                        'label' => __('Author Image', 'dlist-core'),
-                        'type'  => Controls_Manager::MEDIA,
-                    ],
-                ],
+                'fields'      => $repeater->get_controls(),
+                'render_type' => 'template',
             ]
         );
 
@@ -5029,23 +5046,28 @@ class dlist_Team extends Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        $teams    = $settings['teams'];
+        $teams    = !empty($settings['teams']) && is_array($settings['teams']) ? $settings['teams'] : [];
 
         if ($teams) {
             echo wp_kses_post('<div class="row">');
             foreach ($teams as $team) {
-                $image       = $team['image'];
-                $name        = $team['name'];
-                $designation = $team['designation']; ?>
+                $image       = !empty($team['image']) && is_array($team['image']) ? $team['image'] : [];
+                $image_id    = !empty($image['id']) ? absint($image['id']) : 0;
+                $image_url   = $image_id ? wp_get_attachment_image_url($image_id, 'full') : '';
+                $image_url   = $image_url ? $image_url : (!empty($image['url']) ? $image['url'] : '');
+                $name        = !empty($team['name']) ? $team['name'] : '';
+                $designation = !empty($team['designation']) ? $team['designation'] : ''; ?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-single">
                         <figure>
                             <?php
-                            $image_alt = function_exists('dlist_get_image_alt') ? dlist_get_image_alt($image['id']) : '';
-                            echo sprintf('<img src="%s" alt="%s">', esc_url($image['url']), esc_attr($image_alt)) ?>
+                            if ($image_url) {
+                                $image_alt = $image_id && function_exists('dlist_get_image_alt') ? dlist_get_image_alt($image_id) : '';
+                                echo sprintf('<img src="%s" alt="%s">', esc_url($image_url), esc_attr($image_alt));
+                            } ?>
                             <figcaption>
-                                <h5><?php echo esc_attr($name); ?></h5>
-                                <p><?php echo esc_attr($designation); ?></p>
+                                <h5><?php echo esc_html($name); ?></h5>
+                                <p><?php echo esc_html($designation); ?></p>
                             </figcaption>
                         </figure>
                     </div>
