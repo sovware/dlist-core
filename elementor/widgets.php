@@ -2290,9 +2290,9 @@ class dlist_ListingsMap extends Widget_Base
         $title           = $settings['title'];
         $layout          = $settings['layout'];
         $number_cat      = $settings['number_cat'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
+        $cat             = $settings['cat'] ? implode( ',', $settings['cat'] ) : '';
+        $tag             = $settings['tag'] ? implode( ',', $settings['tag'] ) : '';
+        $location        = $settings['location'] ? implode( ',', $settings['location'] ) : '';
         $featured        = $settings['featured'];
         $popular         = $settings['popular'];
         $order_by        = $settings['order_by'];
@@ -3259,9 +3259,9 @@ class dlist_SearchResultMap extends Widget_Base
         $show_pagination = $settings['show_pagination'];
         $layout          = $settings['layout'];
         $number_cat      = $settings['number_cat'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
+        $cat             = $settings['cat'] ? implode( ',', $settings['cat'] ) : '';
+        $tag             = $settings['tag'] ? implode( ',', $settings['tag'] ) : '';
+        $location        = $settings['location'] ? implode( ',', $settings['location'] ) : '';
         $featured        = $settings['featured'];
         $popular         = $settings['popular'];
         $order_by        = $settings['order_by'];
@@ -3781,9 +3781,9 @@ class dlist_SingleCatMap extends Widget_Base
         $settings        = $this->get_settings_for_display();
         $show_pagination = $settings['show_pagination'];
         $title           = $settings['title'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
+        $cat             = $settings['cat'] ? implode( ',', $settings['cat'] ) : '';
+        $location        = $settings['location'] ? implode( ',', $settings['location'] ) : '';
+        $tag             = $settings['tag'] ? implode( ',', $settings['tag'] ) : '';
         $popular         = $settings['popular'];
         $featured        = $settings['featured'];
         $layout          = $settings['layout'];
@@ -4306,9 +4306,9 @@ class dlist_SingleLocMap extends Widget_Base
         $settings        = $this->get_settings_for_display();
         $show_pagination = $settings['show_pagination'];
         $title           = $settings['title'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
+        $cat             = $settings['cat'] ? implode( ',', $settings['cat'] ) : '';
+        $location        = $settings['location'] ? implode( ',', $settings['location'] ) : '';
+        $tag             = $settings['tag'] ? implode( ',', $settings['tag'] ) : '';
         $popular         = $settings['popular'];
         $featured        = $settings['featured'];
         $layout          = $settings['layout'];
@@ -4830,9 +4830,9 @@ class dlist_SingleTagMap extends Widget_Base
         $settings        = $this->get_settings_for_display();
         $show_pagination = $settings['show_pagination'];
         $title           = $settings['title'];
-        $cat             = $settings['cat'] ? implode($settings['cat'], []) : '';
-        $location        = $settings['location'] ? implode($settings['location'], []) : '';
-        $tag             = $settings['tag'] ? implode($settings['tag'], []) : '';
+        $cat             = $settings['cat'] ? implode( ',', $settings['cat'] ) : '';
+        $location        = $settings['location'] ? implode( ',', $settings['location'] ) : '';
+        $tag             = $settings['tag'] ? implode( ',', $settings['tag'] ) : '';
         $popular         = $settings['popular'];
         $featured        = $settings['featured'];
         $layout          = $settings['layout'];
@@ -5593,7 +5593,7 @@ class dlist_NeedCategories extends Widget_Base
         $order_by = $settings['order_by'];
         $order_list = $settings['order_list'];
         $row = $settings['row'];
-        $slug = $settings['slug'] ? implode($settings['slug'], []) : '';
+        $slug = $settings['slug'] ? implode( ',', $settings['slug'] ) : '';
         $cat_style = $settings['cat_style'];
         ?>
 
@@ -5790,7 +5790,7 @@ class dlist_NeedLocations extends Widget_Base
         $order_by = $settings['order_by'];
         $order_list = $settings['order_list'];
         $row = $settings['row'];
-        $slug = $settings['slug'] ? implode($settings['slug'], []) : '';
+        $slug = $settings['slug'] ? implode( ',', $settings['slug'] ) : '';
         $layout = $settings['layout'];
         $user = $settings['user'];
         $web = 'yes' == $user ? $settings['link']['url'] : '';
